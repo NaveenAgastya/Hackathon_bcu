@@ -1,0 +1,314 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    min-height: 100vh;
+}
+
+/* Tab Navigation */
+.tabs-container {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab {
+    padding: 15px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.tab.active {
+    background-color: #fff;
+    border-bottom: 3px solid #4CAF50;
+}
+
+/* Page Containers */
+.page-container {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.page-container.active {
+    display: block;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.nav-btn:hover {
+    background-color: #f5f5f5;
+}
+
+/* Content Styles */
+.content {
+    padding: 10px;
+}
+
+.intro {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.intro-text {
+    flex: 1;
+}
+
+.intro-text h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.intro-image {
+    flex: 1;
+    height: 120px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder {
+    color: #999;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.action-btn.primary {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.action-btn.secondary {
+    background-color: #fff;
+    border: 1px solid #4CAF50;
+    color: #4CAF50;
+}
+
+.action-btn:hover {
+    opacity: 0.9;
+}
+
+/* Info Cards */
+.info-cards {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.info-card {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Volunteer Section */
+.volunteer-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.volunteer-section p {
+    margin-bottom: 10px;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-group.half {
+    flex: 1;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Donation and Delivery Lists */
+.donation-list,
+.delivery-list,
+.request-list {
+    margin-top: 15px;
+}
+
+.donation-item,
+.delivery-item,
+.request-item {
+    display: flex;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.donation-icon,
+.delivery-icon,
+.request-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #eee;
+    margin-right: 10px;
+}
+
+.donation-details,
+.delivery-details,
+.request-details {
+    flex-grow: 1;
+    height: 40px;
+    border-top: 1px solid #eee;
+}
+
+/* Map Container */
+.map-container {
+    height: 200px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Dashboard Styles */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.dashboard-section {
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.impact-cards {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.impact-card {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Volunteer and Active Deliveries containers */
+.volunteer-form-container,
+.active-deliveries-container {
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .intro,
+    .action-buttons,
+    .info-cards,
+    .form-row {
+        flex-direction: column;
+    }
+
+    .intro-image,
+    .action-btn,
+    .info-card {
+        margin-bottom: 15px;
+    }
+
+    .nav-buttons {
+        flex-wrap: wrap;
+    }
+
+    .tab {
+        font-size: 12px;
+        padding: 10px;
+    }
+}

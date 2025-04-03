@@ -1,18 +1,244 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Community Kitchen Network | Fight huger, Reduce waste</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Community Kitchen Network</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <i class="fas fa-utensile"></i>
-                <span>Community kitchen Network</span>
+    <div class="app-container">
+        <!-- Navigation tabs -->
+        <div class="tabs-container">
+            <div class="tab active" data-tab="home">HOME</div>
+            <div class="tab" data-tab="donate">DONATE</div>
+            <div class="tab" data-tab="request">REQUEST</div>
+            <div class="tab" data-tab="volunteer">VOLUNTEER</div>
+            <div class="tab" data-tab="dashboard">DASHBOARD</div>
+        </div>
+
+        <!-- Page content containers -->
+        <div class="page-container active" id="home">
+            <div class="header">
+                <div class="logo">COMMUNITY KITCHEN NETWORK</div>
+                <div class="nav-buttons">
+                    <button class="nav-btn">Donate Food</button>
+                    <button class="nav-btn">Donate From</button>
+                    <button class="nav-btn">Basement</button>
+                </div>
             </div>
-        </nav>
-    </header>
+            <div class="content">
+                <div class="intro">
+                    <div class="intro-text">
+                        <h2>Transforming surplus food</h2>
+                        <p>into meals for those in need</p>
+                    </div>
+                    <div class="intro-image">
+                        <div class="placeholder">Image</div>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button class="action-btn primary" id="donate-food-btn">DONATE FOOD</button>
+                    <button class="action-btn secondary" id="request-food-btn">REQUEST FOOD</button>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">Meals</div>
+                    <div class="info-card">Donors</div>
+                    <div class="info-card">Volunteers</div>
+                </div>
+                <div class="volunteer-section">
+                    <p>Interested in Helpiping?</p>
+                    <button class="action-btn primary" id="volunteer-btn">VOLUNTEER</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-container" id="donate">
+            <div class="header">
+                <div class="logo">COMMUNITY NETWORK</div>
+                <div class="nav-buttons">
+                    <button class="nav-btn">Donate Food</button>
+                    <button class="nav-btn">Request For</button>
+                    <button class="nav-btn">Youmer</button>
+                    <button class="nav-btn">Donate From</button>
+                </div>
+            </div>
+            <div class="content">
+                <h2>Donate Surplus Food</h2>
+                <form id="donate-form">
+                    <div class="form-group">
+                        <label for="food-type">Food Type</label>
+                        <input type="text" id="food-type" name="food-type" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="quantity">Quantity</label>
+                            <input type="text" id="quantity" name="quantity" required>
+                        </div>
+                        <div class="form-group half">
+                            <label for="expiry-date">Expiry Date</label>
+                            <input type="date" id="expiry-date" name="expiry-date" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="pickup-location">Pickup Location</label>
+                        <input type="text" id="pickup-location" name="pickup-location" required>
+                    </div>
+                    <button type="submit" class="submit-btn">SUBMIT</button>
+                </form>
+                <div class="nearby-section">
+                    <h3>Nearby Food Donations</h3>
+                    <div class="donation-list">
+                        <div class="donation-item">
+                            <div class="donation-icon"></div>
+                            <div class="donation-details"></div>
+                        </div>
+                        <div class="donation-item">
+                            <div class="donation-icon"></div>
+                            <div class="donation-details"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-container" id="request">
+            <div class="header">
+                <div class="logo">COMMUNITY NETWRK</div>
+                <div class="nav-buttons">
+                    <button class="nav-btn">Volunteer for</button>
+                    <button class="nav-btn">Volunteer</button>
+                    <button class="nav-btn">Donate Food</button>
+                </div>
+            </div>
+            <div class="content">
+                <h2>Volunteer for Food Delivery</h2>
+                <div class="map-container">
+                    <div class="placeholder">Map</div>
+                </div>
+                <div class="available-section">
+                    <h3>Available Food Donations</h3>
+                    <div class="donation-list">
+                        <div class="donation-item">
+                            <div class="donation-icon"></div>
+                            <div class="donation-details"></div>
+                        </div>
+                        <div class="donation-item">
+                            <div class="donation-icon"></div>
+                            <div class="donation-details"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-container" id="volunteer">
+            <div class="header">
+                <div class="logo">COMMUNITY KITCHEN NETWORK</div>
+                <div class="nav-buttons">
+                    <button class="nav-btn">Donate Food</button>
+                    <button class="nav-btn">Request Food</button>
+                    <button class="nav-btn">Volunteer</button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="volunteer-form-container">
+                    <h2>Volunteer for Food Delivery</h2>
+                    <form id="volunteer-form">
+                        <div class="form-group">
+                            <label for="volunteer-name">Name</label>
+                            <input type="text" id="volunteer-name" name="volunteer-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="volunteer-email">Email</label>
+                            <input type="email" id="volunteer-email" name="volunteer-email" required>
+                        </div>
+                        <h3>Active Deliveries</h3>
+                        <div class="delivery-list">
+                            <div class="delivery-item">
+                                <div class="delivery-icon"></div>
+                                <div class="delivery-details"></div>
+                            </div>
+                            <div class="delivery-item">
+                                <div class="delivery-icon"></div>
+                                <div class="delivery-details"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="active-deliveries-container">
+                    <h2>Active Deliveries</h2>
+                    <div class="form-group">
+                        <label for="delivery-name">Name</label>
+                        <input type="text" id="delivery-name" name="delivery-name" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="delivery-email">Email</label>
+                        <input type="email" id="delivery-email" name="delivery-email" readonly>
+                    </div>
+                    <h3>Active Deliveries</h3>
+                    <div class="delivery-list">
+                        <div class="delivery-item"></div>
+                        <div class="delivery-item"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-container" id="dashboard">
+            <div class="header">
+                <div class="logo">COMMUNITY KITCHEN NETWORK</div>
+                <div class="nav-buttons">
+                    <button class="nav-btn">Dashboard</button>
+                    <button class="nav-btn">Your Requests</button>
+                    <button class="nav-btn">Doate Food</button>
+                </div>
+            </div>
+            <div class="content">
+                <h2>Dashboard</h2>
+                <div class="dashboard-container">
+                    <div class="dashboard-section">
+                        <h3>Your Donations</h3>
+                        <div class="donation-list">
+                            <div class="donation-item">
+                                <div class="donation-icon"></div>
+                                <div class="donation-details"></div>
+                            </div>
+                            <div class="donation-item">
+                                <div class="donation-icon"></div>
+                                <div class="donation-details"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-section">
+                        <h3>Your Requests</h3>
+                        <div class="request-list">
+                            <div class="request-item">
+                                <div class="request-icon"></div>
+                                <div class="request-details"></div>
+                            </div>
+                            <div class="request-item">
+                                <div class="request-icon"></div>
+                                <div class="request-details"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="impact-section">
+                        <h3>Impact Summary</h3>
+                        <div class="impact-cards">
+                            <div class="impact-card">Meals Saved</div>
+                            <div class="impact-card">Donors</div>
+                            <div class="impact-card">Deliveries</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
