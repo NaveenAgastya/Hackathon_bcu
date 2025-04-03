@@ -1,23 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Tab navigation functionality
     const tabs = document.querySelectorAll('.tab');
     const pageContainers = document.querySelectorAll('.page-container');
 
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
             const tabId = tab.getAttribute('data-tab');
-
-            // Remove active class from all tabs and pages
             tabs.forEach(t => t.classList.remove('active'));
             pageContainers.forEach(page => page.classList.remove('active'));
-
-            // Add active class to selected tab and page
             tab.classList.add('active');
             document.getElementById(tabId).classList.add('active');
         });
     });
 
-    // Quick navigation buttons
     const donateBtn = document.getElementById('donate-food-btn');
     const requestBtn = document.getElementById('request-food-btn');
     const volunteerBtn = document.getElementById('volunteer-btn');
@@ -52,20 +46,15 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Form submission for donation
     const donateForm = document.getElementById('donate-form');
     if (donateForm) {
         donateForm.addEventListener('submit', (e) => {
             e.preventDefault();
-
-            // Get form data
             const foodType = document.getElementById('food-type').value;
             const quantity = document.getElementById('quantity').value;
             const expiryDate = document.getElementById('expiry-date').value;
             const pickupLocation = document.getElementById('pickup-location').value;
 
-            // In a real application, this data would be sent to a server
-            // For this demo, we'll simulate storing it in localStorage
             const donationData = {
                 foodType,
                 quantity,
@@ -74,18 +63,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 timestamp: new Date().toISOString()
             };
 
-            // Get existing donations or initialize empty array
             const existingDonations = JSON.parse(localStorage.getItem('donations') || '[]');
             existingDonations.push(donationData);
 
-            // Save back to localStorage
             localStorage.setItem('donations', JSON.stringify(existingDonations));
 
-            // Clear form and show success message
             donateForm.reset();
             alert('Thank you for your donation! Your food will help those in need.');
-
-            // Update dashboard view if needed
             updateDashboard();
         });
     }

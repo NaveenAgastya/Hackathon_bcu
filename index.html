@@ -5,237 +5,558 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Community Kitchen Network</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="app-container">
         <!-- Navigation tabs -->
-        <div class="tabs-container">
-            <div class="tab active" data-tab="home">HOME</div>
-            <div class="tab" data-tab="donate">DONATE</div>
-            <div class="tab" data-tab="request">REQUEST</div>
-            <div class="tab" data-tab="volunteer">VOLUNTEER</div>
-            <div class="tab" data-tab="dashboard">DASHBOARD</div>
-        </div>
+        <nav class="main-navigation">
+            <div class="logo">
+                <i class="fas fa-utensils"></i>
+                <span>CommunityKitchen</span>
+            </div>
+            <div class="tabs-container">
+                <div class="tab active" data-tab="home">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </div>
+                <div class="tab" data-tab="donate">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <span>Donate</span>
+                </div>
+                <div class="tab" data-tab="request">
+                    <i class="fas fa-utensil-spoon"></i>
+                    <span>Request</span>
+                </div>
+                <div class="tab" data-tab="volunteer">
+                    <i class="fas fa-people-carry"></i>
+                    <span>Volunteer</span>
+                </div>
+                <div class="tab" data-tab="dashboard">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </div>
+            </div>
+            <div class="user-menu">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <span class="username">Guest</span>
+            </div>
+        </nav>
 
-        <!-- Page content containers -->
+        <!-- HOME PAGE -->
         <div class="page-container active" id="home">
-            <div class="header">
-                <div class="logo">COMMUNITY KITCHEN NETWORK</div>
-                <div class="nav-buttons">
-                    <button class="nav-btn">Donate Food</button>
-                    <button class="nav-btn">Donate From</button>
-                    <button class="nav-btn">Basement</button>
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1>Transforming Surplus Food</h1>
+                    <h2>Into Meals for Those in Need</h2>
+                    <p>Join our community-driven network to reduce food waste and enhance food security</p>
+                    <div class="action-buttons">
+                        <button class="action-btn primary" id="donate-food-btn">
+                            <i class="fas fa-hand-holding-heart"></i> Donate Food
+                        </button>
+                        <button class="action-btn secondary" id="request-food-btn">
+                            <i class="fas fa-bowl-food"></i> Request Food
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="/api/placeholder/600/400" alt="Community Kitchen" />
                 </div>
             </div>
-            <div class="content">
-                <div class="intro">
-                    <div class="intro-text">
-                        <h2>Transforming surplus food</h2>
-                        <p>into meals for those in need</p>
+
+            <div class="stats-section">
+                <h3>Our Impact</h3>
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-plate-wheat"></i>
+                        </div>
+                        <div class="stat-value" id="meals-saved">0</div>
+                        <div class="stat-label">Meals Shared</div>
                     </div>
-                    <div class="intro-image">
-                        <div class="placeholder">Image</div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-hands-holding"></i>
+                        </div>
+                        <div class="stat-value" id="total-donors">0</div>
+                        <div class="stat-label">Food Donors</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-people-carry-box"></i>
+                        </div>
+                        <div class="stat-value" id="total-volunteers">0</div>
+                        <div class="stat-label">Volunteers</div>
                     </div>
                 </div>
-                <div class="action-buttons">
-                    <button class="action-btn primary" id="donate-food-btn">DONATE FOOD</button>
-                    <button class="action-btn secondary" id="request-food-btn">REQUEST FOOD</button>
+            </div>
+
+            <div class="how-it-works">
+                <h3>How It Works</h3>
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <div class="step-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h4>Donate Surplus Food</h4>
+                        <p>Restaurants, grocers, and individuals can donate their surplus food</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <div class="step-icon">
+                            <i class="fas fa-kitchen-set"></i>
+                        </div>
+                        <h4>Community Kitchens</h4>
+                        <p>Food is prepared and packaged by our network of community kitchens</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <div class="step-icon">
+                            <i class="fas fa-people-carry-box"></i>
+                        </div>
+                        <h4>Volunteer Delivery</h4>
+                        <p>Volunteers pick up and deliver meals to those who need them</p>
+                    </div>
                 </div>
-                <div class="info-cards">
-                    <div class="info-card">Meals</div>
-                    <div class="info-card">Donors</div>
-                    <div class="info-card">Volunteers</div>
-                </div>
-                <div class="volunteer-section">
-                    <p>Interested in Helpiping?</p>
-                    <button class="action-btn primary" id="volunteer-btn">VOLUNTEER</button>
+            </div>
+
+            <div class="volunteer-call">
+                <div class="volunteer-content">
+                    <h3>Interested in Helping?</h3>
+                    <p>Join our network of volunteers and help make a difference in your community</p>
+                    <button class="action-btn primary" id="volunteer-btn">
+                        <i class="fas fa-hands-helping"></i> Volunteer Now
+                    </button>
                 </div>
             </div>
         </div>
 
+        <!-- DONATE PAGE -->
         <div class="page-container" id="donate">
-            <div class="header">
-                <div class="logo">COMMUNITY NETWORK</div>
-                <div class="nav-buttons">
-                    <button class="nav-btn">Donate Food</button>
-                    <button class="nav-btn">Request For</button>
-                    <button class="nav-btn">Youmer</button>
-                    <button class="nav-btn">Donate From</button>
-                </div>
+            <div class="page-header">
+                <h2><i class="fas fa-hand-holding-heart"></i> Donate Surplus Food</h2>
+                <p>Help reduce food waste by donating your surplus food to those in need</p>
             </div>
-            <div class="content">
-                <h2>Donate Surplus Food</h2>
-                <form id="donate-form">
-                    <div class="form-group">
-                        <label for="food-type">Food Type</label>
-                        <input type="text" id="food-type" name="food-type" required>
+
+            <div class="content-layout">
+                <div class="form-section">
+                    <div class="card">
+                        <h3>Food Donation Details</h3>
+                        <form id="donate-form" class="modern-form">
+                            <div class="form-group">
+                                <label for="food-type">Food Type</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-apple-whole"></i>
+                                    <input type="text" id="food-type" name="food-type" placeholder="e.g., Fresh Vegetables, Bread, Cooked Meals" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label for="quantity">Quantity</label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-scale-balanced"></i>
+                                        <input type="text" id="quantity" name="quantity" placeholder="e.g., 5kg, 12 items" required>
+                                    </div>
+                                </div>
+                                <div class="form-group half">
+                                    <label for="expiry-date">Expiry Date</label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-calendar"></i>
+                                        <input type="date" id="expiry-date" name="expiry-date" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="pickup-location">Pickup Location</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-location-dot"></i>
+                                    <input type="text" id="pickup-location" name="pickup-location" placeholder="Enter your address" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="pickup-time">Available for Pickup</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-clock"></i>
+                                    <input type="time" id="pickup-time" name="pickup-time" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="donation-notes">Additional Notes</label>
+                                <textarea id="donation-notes" name="donation-notes" placeholder="Any special handling instructions or details"></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i> Submit Donation
+                            </button>
+                        </form>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group half">
-                            <label for="quantity">Quantity</label>
-                            <input type="text" id="quantity" name="quantity" required>
-                        </div>
-                        <div class="form-group half">
-                            <label for="expiry-date">Expiry Date</label>
-                            <input type="date" id="expiry-date" name="expiry-date" required>
+                </div>
+
+                <div class="info-section">
+                    <div class="card">
+                        <h3>Nearby Food Donations</h3>
+                        <div class="donation-list" id="nearby-donations">
+                            <!-- Donations will be added dynamically -->
+                            <div class="loading-spinner">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="pickup-location">Pickup Location</label>
-                        <input type="text" id="pickup-location" name="pickup-location" required>
-                    </div>
-                    <button type="submit" class="submit-btn">SUBMIT</button>
-                </form>
-                <div class="nearby-section">
-                    <h3>Nearby Food Donations</h3>
-                    <div class="donation-list">
-                        <div class="donation-item">
-                            <div class="donation-icon"></div>
-                            <div class="donation-details"></div>
-                        </div>
-                        <div class="donation-item">
-                            <div class="donation-icon"></div>
-                            <div class="donation-details"></div>
-                        </div>
+                    
+                    <div class="card guidelines-card">
+                        <h3>Food Donation Guidelines</h3>
+                        <ul class="guidelines-list">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Food must be unexpired and in good condition</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Package food securely to maintain quality</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Provide accurate information about ingredients</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Be available during the specified pickup time</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- REQUEST PAGE -->
         <div class="page-container" id="request">
-            <div class="header">
-                <div class="logo">COMMUNITY NETWRK</div>
-                <div class="nav-buttons">
-                    <button class="nav-btn">Volunteer for</button>
-                    <button class="nav-btn">Volunteer</button>
-                    <button class="nav-btn">Donate Food</button>
-                </div>
+            <div class="page-header">
+                <h2><i class="fas fa-utensil-spoon"></i> Request Food</h2>
+                <p>Find available food donations in your area</p>
             </div>
-            <div class="content">
-                <h2>Volunteer for Food Delivery</h2>
-                <div class="map-container">
-                    <div class="placeholder">Map</div>
+
+            <div class="content-layout">
+                <div class="form-section">
+                    <div class="card">
+                        <h3>Food Request Details</h3>
+                        <form id="request-form" class="modern-form">
+                            <div class="form-group">
+                                <label for="request-name">Name</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="request-name" name="request-name" placeholder="Your full name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="request-contact">Contact Number</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-phone"></i>
+                                    <input type="tel" id="request-contact" name="request-contact" placeholder="Your phone number" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="request-location">Delivery Location</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-location-dot"></i>
+                                    <input type="text" id="request-location" name="request-location" placeholder="Where should we deliver?" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="request-people">Number of People</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-users"></i>
+                                    <input type="number" id="request-people" name="request-people" min="1" placeholder="How many people need food?" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="dietary-restrictions">Dietary Restrictions</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-wheat-awn-circle-exclamation"></i>
+                                    <input type="text" id="dietary-restrictions" name="dietary-restrictions" placeholder="e.g., Vegetarian, Allergies">
+                                </div>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i> Submit Request
+                            </button>
+                        </form>
+                    </div>
                 </div>
-                <div class="available-section">
-                    <h3>Available Food Donations</h3>
-                    <div class="donation-list">
-                        <div class="donation-item">
-                            <div class="donation-icon"></div>
-                            <div class="donation-details"></div>
+
+                <div class="info-section">
+                    <div class="card">
+                        <h3>Available Food</h3>
+                        <div class="map-container">
+                            <div class="map-placeholder">
+                                <i class="fas fa-map-location-dot"></i>
+                                <span>Interactive map coming soon</span>
+                            </div>
                         </div>
-                        <div class="donation-item">
-                            <div class="donation-icon"></div>
-                            <div class="donation-details"></div>
+                        <div class="available-food-list" id="available-food">
+                            <!-- Available food will be added dynamically -->
+                            <div class="loading-spinner">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- VOLUNTEER PAGE -->
         <div class="page-container" id="volunteer">
-            <div class="header">
-                <div class="logo">COMMUNITY KITCHEN NETWORK</div>
-                <div class="nav-buttons">
-                    <button class="nav-btn">Donate Food</button>
-                    <button class="nav-btn">Request Food</button>
-                    <button class="nav-btn">Volunteer</button>
-                </div>
+            <div class="page-header">
+                <h2><i class="fas fa-people-carry"></i> Volunteer</h2>
+                <p>Join our network of volunteers and help make a difference</p>
             </div>
-            <div class="content">
-                <div class="volunteer-form-container">
-                    <h2>Volunteer for Food Delivery</h2>
-                    <form id="volunteer-form">
-                        <div class="form-group">
-                            <label for="volunteer-name">Name</label>
-                            <input type="text" id="volunteer-name" name="volunteer-name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="volunteer-email">Email</label>
-                            <input type="email" id="volunteer-email" name="volunteer-email" required>
-                        </div>
-                        <h3>Active Deliveries</h3>
-                        <div class="delivery-list">
-                            <div class="delivery-item">
-                                <div class="delivery-icon"></div>
-                                <div class="delivery-details"></div>
+
+            <div class="content-layout">
+                <div class="form-section">
+                    <div class="card">
+                        <h3>Volunteer Registration</h3>
+                        <form id="volunteer-form" class="modern-form">
+                            <div class="form-group">
+                                <label for="volunteer-name">Full Name</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="volunteer-name" name="volunteer-name" placeholder="Your full name" required>
+                                </div>
                             </div>
-                            <div class="delivery-item">
-                                <div class="delivery-icon"></div>
-                                <div class="delivery-details"></div>
+                            <div class="form-group">
+                                <label for="volunteer-email">Email Address</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="email" id="volunteer-email" name="volunteer-email" placeholder="Your email address" required>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                            <div class="form-group">
+                                <label for="volunteer-phone">Phone Number</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-phone"></i>
+                                    <input type="tel" id="volunteer-phone" name="volunteer-phone" placeholder="Your phone number" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="volunteer-availability">Availability</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" name="availability" value="weekday-morning">
+                                        <span class="checkmark"></span>
+                                        Weekday Mornings
+                                    </label>
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" name="availability" value="weekday-evening">
+                                        <span class="checkmark"></span>
+                                        Weekday Evenings
+                                    </label>
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" name="availability" value="weekend">
+                                        <span class="checkmark"></span>
+                                        Weekends
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="volunteer-role">Preferred Role</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-clipboard-list"></i>
+                                    <select id="volunteer-role" name="volunteer-role" required>
+                                        <option value="">Select a role</option>
+                                        <option value="driver">Food Delivery Driver</option>
+                                        <option value="kitchen">Kitchen Helper</option>
+                                        <option value="coordinator">Donation Coordinator</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i> Submit Application
+                            </button>
+                        </form>
+                    </div>
                 </div>
-                <div class="active-deliveries-container">
-                    <h2>Active Deliveries</h2>
-                    <div class="form-group">
-                        <label for="delivery-name">Name</label>
-                        <input type="text" id="delivery-name" name="delivery-name" readonly>
+
+                <div class="info-section">
+                    <div class="card">
+                        <h3>Available Deliveries</h3>
+                        <div class="delivery-list" id="available-deliveries">
+                            <!-- Deliveries will be added dynamically -->
+                            <div class="loading-spinner">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="delivery-email">Email</label>
-                        <input type="email" id="delivery-email" name="delivery-email" readonly>
-                    </div>
-                    <h3>Active Deliveries</h3>
-                    <div class="delivery-list">
-                        <div class="delivery-item"></div>
-                        <div class="delivery-item"></div>
+                    
+                    <div class="card testimonial-card">
+                        <h3>Volunteer Stories</h3>
+                        <div class="testimonial">
+                            <div class="testimonial-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="testimonial-content">
+                                <p>"Volunteering with Community Kitchen Network has been incredibly rewarding. I've met amazing people and made a real difference in my community."</p>
+                                <div class="testimonial-author">- Sarah J.</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- DASHBOARD PAGE -->
         <div class="page-container" id="dashboard">
-            <div class="header">
-                <div class="logo">COMMUNITY KITCHEN NETWORK</div>
-                <div class="nav-buttons">
-                    <button class="nav-btn">Dashboard</button>
-                    <button class="nav-btn">Your Requests</button>
-                    <button class="nav-btn">Doate Food</button>
-                </div>
+            <div class="page-header">
+                <h2><i class="fas fa-chart-line"></i> Dashboard</h2>
+                <p>Track your contributions and impact</p>
             </div>
-            <div class="content">
-                <h2>Dashboard</h2>
-                <div class="dashboard-container">
-                    <div class="dashboard-section">
+
+            <div class="dashboard-layout">
+                <div class="dashboard-sidebar">
+                    <div class="user-profile">
+                        <div class="user-avatar large">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="user-name">Guest User</h3>
+                        <p class="user-status">Active Member</p>
+                    </div>
+                    
+                    <nav class="dashboard-nav">
+                        <a href="#" class="dashboard-nav-item active" data-section="overview">
+                            <i class="fas fa-home"></i>
+                            <span>Overview</span>
+                        </a>
+                        <a href="#" class="dashboard-nav-item" data-section="donations">
+                            <i class="fas fa-hand-holding-heart"></i>
+                            <span>Your Donations</span>
+                        </a>
+                        <a href="#" class="dashboard-nav-item" data-section="requests">
+                            <i class="fas fa-utensil-spoon"></i>
+                            <span>Your Requests</span>
+                        </a>
+                        <a href="#" class="dashboard-nav-item" data-section="deliveries">
+                            <i class="fas fa-truck"></i>
+                            <span>Your Deliveries</span>
+                        </a>
+                    </nav>
+                </div>
+
+                <div class="dashboard-content">
+                    <div class="dashboard-section active" id="dashboard-overview">
+                        <div class="dashboard-cards">
+                            <div class="dashboard-card">
+                                <div class="dashboard-card-icon">
+                                    <i class="fas fa-hand-holding-heart"></i>
+                                </div>
+                                <div class="dashboard-card-content">
+                                    <h4>Your Donations</h4>
+                                    <div class="dashboard-card-value" id="user-donations-count">0</div>
+                                </div>
+                            </div>
+                            <div class="dashboard-card">
+                                <div class="dashboard-card-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <div class="dashboard-card-content">
+                                    <h4>Meals Provided</h4>
+                                    <div class="dashboard-card-value" id="user-meals-count">0</div>
+                                </div>
+                            </div>
+                            <div class="dashboard-card">
+                                <div class="dashboard-card-icon">
+                                    <i class="fas fa-truck"></i>
+                                </div>
+                                <div class="dashboard-card-content">
+                                    <h4>Deliveries Made</h4>
+                                    <div class="dashboard-card-value" id="user-deliveries-count">0</div>
+                                </div>
+                            </div>
+                            <div class="dashboard-card">
+                                <div class="dashboard-card-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="dashboard-card-content">
+                                    <h4>People Helped</h4>
+                                    <div class="dashboard-card-value" id="people-helped-count">0</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-data-section">
+                            <div class="dashboard-chart-container">
+                                <h3>Activity Overview</h3>
+                                <div class="chart-placeholder">
+                                    <div class="activity-bars">
+                                        <div class="activity-bar" style="height: 30%"></div>
+                                        <div class="activity-bar" style="height: 45%"></div>
+                                        <div class="activity-bar" style="height: 70%"></div>
+                                        <div class="activity-bar" style="height: 50%"></div>
+                                        <div class="activity-bar" style="height: 80%"></div>
+                                        <div class="activity-bar" style="height: 65%"></div>
+                                        <div class="activity-bar active" style="height: 90%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="recent-activity">
+                                <h3>Recent Activity</h3>
+                                <div class="activity-list" id="recent-activities">
+                                    <!-- Activities will be added dynamically -->
+                                    <div class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-hand-holding-heart"></i>
+                                        </div>
+                                        <div class="activity-details">
+                                            <div class="activity-title">Food Donated</div>
+                                            <div class="activity-description">You donated Fresh Vegetables (5kg)</div>
+                                            <div class="activity-time">2 hours ago</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-section" id="dashboard-donations">
                         <h3>Your Donations</h3>
-                        <div class="donation-list">
-                            <div class="donation-item">
-                                <div class="donation-icon"></div>
-                                <div class="donation-details"></div>
-                            </div>
-                            <div class="donation-item">
-                                <div class="donation-icon"></div>
-                                <div class="donation-details"></div>
+                        <div class="donation-history" id="user-donations">
+                            <!-- User donations will be added dynamically -->
+                            <div class="loading-spinner">
+                                <i class="fas fa-spinner fa-spin"></i>
                             </div>
                         </div>
                     </div>
-                    <div class="dashboard-section">
+                    
+                    <div class="dashboard-section" id="dashboard-requests">
                         <h3>Your Requests</h3>
-                        <div class="request-list">
-                            <div class="request-item">
-                                <div class="request-icon"></div>
-                                <div class="request-details"></div>
-                            </div>
-                            <div class="request-item">
-                                <div class="request-icon"></div>
-                                <div class="request-details"></div>
+                        <div class="request-history" id="user-requests">
+                            <!-- User requests will be added dynamically -->
+                            <div class="loading-spinner">
+                                <i class="fas fa-spinner fa-spin"></i>
                             </div>
                         </div>
                     </div>
-                    <div class="impact-section">
-                        <h3>Impact Summary</h3>
-                        <div class="impact-cards">
-                            <div class="impact-card">Meals Saved</div>
-                            <div class="impact-card">Donors</div>
-                            <div class="impact-card">Deliveries</div>
+                    
+                    <div class="dashboard-section" id="dashboard-deliveries">
+                        <h3>Your Deliveries</h3>
+                        <div class="delivery-history" id="user-deliveries">
+                            <!-- User deliveries will be added dynamically -->
+                            <div class="loading-spinner">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <!-- Toast notifications container -->
+        <div class="toast-container" id="toast-container"></div>
     </div>
 
     <script src="script.js"></script>
