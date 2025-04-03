@@ -378,91 +378,91 @@ function loadAvailableDeliveries() {
     });
 }
 
-function loadDashboardData() {
-    // Update dashboard stats
-    document.getElementById('user-donations-count').textContent = sampleUserData.donations;
-    document.getElementById('user-meals-count').textContent = sampleUserData.mealsProvided;
-    document.getElementById('user-deliveries-count').textContent = sampleUserData.deliveriesMade;
-    document.getElementById('people-helped-count').textContent = sampleUserData.peopleHelped;
+// function loadDashboardData() {
+//     // Update dashboard stats
+//     document.getElementById('user-donations-count').textContent = sampleUserData.donations;
+//     document.getElementById('user-meals-count').textContent = sampleUserData.mealsProvided;
+//     document.getElementById('user-deliveries-count').textContent = sampleUserData.deliveriesMade;
+//     document.getElementById('people-helped-count').textContent = sampleUserData.peopleHelped;
     
-    // Load recent activities
-    const recentActivitiesContainer = document.getElementById('recent-activities');
-    recentActivitiesContainer.innerHTML = '';
+//     // Load recent activities
+//     const recentActivitiesContainer = document.getElementById('recent-activities');
+//     recentActivitiesContainer.innerHTML = '';
     
-    sampleUserData.recentActivities.forEach(activity => {
-        const activityItem = document.createElement('div');
-        activityItem.className = 'activity-item';
+//     sampleUserData.recentActivities.forEach(activity => {
+//         const activityItem = document.createElement('div');
+//         activityItem.className = 'activity-item';
         
-        let icon = 'fa-hand-holding-heart';
-        if (activity.type === 'delivery') icon = 'fa-truck';
-        if (activity.type === 'volunteer') icon = 'fa-people-carry-box';
+//         let icon = 'fa-hand-holding-heart';
+//         if (activity.type === 'delivery') icon = 'fa-truck';
+//         if (activity.type === 'volunteer') icon = 'fa-people-carry-box';
         
-        activityItem.innerHTML = `
-            <div class="activity-icon">
-                <i class="fas ${icon}"></i>
-            </div>
-            <div class="activity-details">
-                <div class="activity-title">${activity.title}</div>
-                <div class="activity-description">${activity.description}</div>
-                <div class="activity-time">${activity.time}</div>
-            </div>
-        `;
+//         activityItem.innerHTML = `
+//             <div class="activity-icon">
+//                 <i class="fas ${icon}"></i>
+//             </div>
+//             <div class="activity-details">
+//                 <div class="activity-title">${activity.title}</div>
+//                 <div class="activity-description">${activity.description}</div>
+//                 <div class="activity-time">${activity.time}</div>
+//             </div>
+//         `;
         
-        recentActivitiesContainer.appendChild(activityItem);
-    });
+//         recentActivitiesContainer.appendChild(activityItem);
+//     });
     
-    // Load user donations history
-    const userDonationsContainer = document.getElementById('user-donations');
-    userDonationsContainer.innerHTML = '';
+//     // Load user donations history
+//     const userDonationsContainer = document.getElementById('user-donations');
+//     userDonationsContainer.innerHTML = '';
     
-    if (sampleDonations.length === 0) {
-        userDonationsContainer.innerHTML = `
-            <div class="empty-state">
-                <i class="fas fa-box-open"></i>
-                <p>You haven't made any donations yet.</p>
-            </div>
-        `;
-    } else {
-        sampleDonations.forEach(donation => {
-            const donationItem = document.createElement('div');
-            donationItem.className = 'history-item';
+//     if (sampleDonations.length === 0) {
+//         userDonationsContainer.innerHTML = `
+//             <div class="empty-state">
+//                 <i class="fas fa-box-open"></i>
+//                 <p>You haven't made any donations yet.</p>
+//             </div>
+//         `;
+//     } else {
+//         sampleDonations.forEach(donation => {
+//             const donationItem = document.createElement('div');
+//             donationItem.className = 'history-item';
             
-            const statusClass = donation.status === 'Completed' ? 'status-completed' : 'status-pending';
+//             const statusClass = donation.status === 'Completed' ? 'status-completed' : 'status-pending';
             
-            donationItem.innerHTML = `
-                <div class="history-icon">
-                    <i class="fas fa-box-open"></i>
-                </div>
-                <div class="history-details">
-                    <div class="history-title">${donation.type} (${donation.quantity})</div>
-                    <div class="history-location">${donation.location}</div>
-                    <div class="history-time">${donation.time} · ${formatDate(donation.date)}</div>
-                    <div class="history-status ${statusClass}">${donation.status}</div>
-                </div>
-            `;
+//             donationItem.innerHTML = `
+//                 <div class="history-icon">
+//                     <i class="fas fa-box-open"></i>
+//                 </div>
+//                 <div class="history-details">
+//                     <div class="history-title">${donation.type} (${donation.quantity})</div>
+//                     <div class="history-location">${donation.location}</div>
+//                     <div class="history-time">${donation.time} · ${formatDate(donation.date)}</div>
+//                     <div class="history-status ${statusClass}">${donation.status}</div>
+//                 </div>
+//             `;
             
-            userDonationsContainer.appendChild(donationItem);
-        });
-    }
+//             userDonationsContainer.appendChild(donationItem);
+//         });
+//     }
     
-    // Similar functions would be implemented for requests and deliveries sections
-    const userRequestsContainer = document.getElementById('user-requests');
-    const userDeliveriesContainer = document.getElementById('user-deliveries');
+//     // Similar functions would be implemented for requests and deliveries sections
+//     const userRequestsContainer = document.getElementById('user-requests');
+//     const userDeliveriesContainer = document.getElementById('user-deliveries');
     
-    userRequestsContainer.innerHTML = `
-        <div class="empty-state">
-            <i class="fas fa-hand-holding"></i>
-            <p>You haven't made any food requests yet.</p>
-        </div>
-    `;
+//     userRequestsContainer.innerHTML = `
+//         <div class="empty-state">
+//             <i class="fas fa-hand-holding"></i>
+//             <p>You haven't made any food requests yet.</p>
+//         </div>
+//     `;
     
-    userDeliveriesContainer.innerHTML = `
-        <div class="empty-state">
-            <i class="fas fa-truck"></i>
-            <p>You haven't made any deliveries yet.</p>
-        </div>
-    `;
-}
+//     userDeliveriesContainer.innerHTML = `
+//         <div class="empty-state">
+//             <i class="fas fa-truck"></i>
+//             <p>You haven't made any deliveries yet.</p>
+//         </div>
+//     `;
+// }
 
 // Form handling
 function handleDonateFormSubmit(event) {
@@ -519,7 +519,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadNearbyDonations();
     loadAvailableFood();
     loadAvailableDeliveries();
-    loadDashboardData();
+    // loadDashboardData();
     
     // Tab navigation
     tabElements.forEach(tab => {
@@ -678,3 +678,135 @@ function addInteractiveAnimations() {
 }
 
 addInteractiveAnimations();
+
+// // Dashboard Enhancements
+// function initDashboardCharts() {
+//     // Activity Chart
+//     const activityCtx = document.getElementById('activityChart').getContext('2d');
+//     const activityChart = new Chart(activityCtx, {
+//         type: 'bar',
+//         data: {
+//             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+//             datasets: [
+//                 {
+//                     label: 'Donations',
+//                     data: [8, 10, 12, 9, 11, 13, 15],
+//                     backgroundColor: 'rgba(76, 175, 80, 0.7)',
+//                     borderColor: 'rgba(76, 175, 80, 1)',
+//                     borderWidth: 1
+//                 },
+//                 {
+//                     label: 'Deliveries',
+//                     data: [5, 7, 6, 8, 10, 9, 12],
+//                     backgroundColor: 'rgba(255, 87, 34, 0.7)',
+//                     borderColor: 'rgba(255, 87, 34, 1)',
+//                     borderWidth: 1
+//                 }
+//             ]
+//         },
+//         options: {
+//             responsive: true,
+//             maintainAspectRatio: false,
+//             scales: {
+//                 y: {
+//                     beginAtZero: true
+//                 }
+//             },
+//             plugins: {
+//                 legend: {
+//                     position: 'top',
+//                 },
+//                 tooltip: {
+//                     mode: 'index',
+//                     intersect: false,
+//                 }
+//             }
+//         }
+//     });
+
+//     // Donation Chart
+//     const donationCtx = document.getElementById('donationChart').getContext('2d');
+//     const donationChart = new Chart(donationCtx, {
+//         type: 'doughnut',
+//         data: {
+//             labels: ['Fresh Produce', 'Packaged Food', 'Cooked Meals', 'Baked Goods'],
+//             datasets: [{
+//                 data: [35, 25, 20, 20],
+//                 backgroundColor: [
+//                     'rgba(76, 175, 80, 0.7)',
+//                     'rgba(33, 150, 243, 0.7)',
+//                     'rgba(255, 152, 0, 0.7)',
+//                     'rgba(156, 39, 176, 0.7)'
+//                 ],
+//                 borderColor: [
+//                     'rgba(76, 175, 80, 1)',
+//                     'rgba(33, 150, 243, 1)',
+//                     'rgba(255, 152, 0, 1)',
+//                     'rgba(156, 39, 176, 1)'
+//                 ],
+//                 borderWidth: 1
+//             }]
+//         },
+//         options: {
+//             responsive: true,
+//             maintainAspectRatio: false,
+//             plugins: {
+//                 legend: {
+//                     position: 'right',
+//                 }
+//             }
+//         }
+//     });
+
+//     // Update charts when filters change
+//     document.getElementById('chart-timeframe').addEventListener('change', function() {
+//         // In a real app, you would fetch new data based on the selected timeframe
+//         console.log('Timeframe changed to:', this.value);
+//     });
+
+//     document.getElementById('report-type').addEventListener('change', function() {
+//         // In a real app, you would update the report based on the selected type
+//         console.log('Report type changed to:', this.value);
+//     });
+// }
+
+// // Initialize dashboard when the page loads
+// document.addEventListener('DOMContentLoaded', function() {
+//     // Only initialize if we're on the dashboard page
+//     if (document.getElementById('dashboard')) {
+//         // Load Chart.js library dynamically
+//         const script = document.createElement('script');
+//         script.src = 'https://cdn.jsdelivr.net/npm/chart.js';
+//         script.onload = initDashboardCharts;
+//         document.head.appendChild(script);
+
+//         // Handle settings tabs
+//         const settingsTabs = document.querySelectorAll('.settings-tab');
+//         settingsTabs.forEach(tab => {
+//             tab.addEventListener('click', function() {
+//                 settingsTabs.forEach(t => t.classList.remove('active'));
+//                 this.classList.add('active');
+//                 // In a real app, you would show the corresponding content
+//             });
+//         });
+
+//         // Handle form submissions
+//         document.getElementById('profile-form')?.addEventListener('submit', function(e) {
+//             e.preventDefault();
+//             showToast('Profile updated successfully!', 'success');
+//         });
+
+//         // Handle new donation/request/delivery buttons
+//         document.getElementById('new-donation-btn')?.addEventListener('click', function() {
+//             switchTab('donate');
+//         });
+
+//         document.getElementById('new-request-btn')?.addEventListener('click', function() {
+//             switchTab('request');
+//         });
+
+//         document.getElementById('new-delivery-btn')?.addEventListener('click', function() {
+//             switchTab('volunteer');
+//         });
+//     }
+// });
