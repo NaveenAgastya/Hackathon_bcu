@@ -13,10 +13,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./DashboardStyle.css">
+    <link rel="stylesheet" href="./register.css">
 
 </head>
 
-<body>
+<body onload="login.html">
     <div class="app-container">
         <!-- Navigation tabs -->
         <nav class="main-navigation">
@@ -1183,6 +1184,75 @@
                         </table>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add this to your request page -->
+<div class="page-container" id="request">
+    <!-- ... existing request form ... -->
+    
+    <!-- Communication Modal (hidden by default) -->
+    <div class="modal" id="communication-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Discuss Request Details</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="message-container" id="message-container">
+                    <!-- Messages will appear here -->
+                </div>
+                <div class="message-input">
+                    <input type="text" id="message-input" placeholder="Type your message...">
+                    <button id="send-message">Send</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="formalize-request" class="btn-primary">Confirm Request</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Map Modal (hidden by default) -->
+    <div class="modal" id="map-modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Delivery Route</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="map-container" id="interactive-map">
+                    <!-- Map will be loaded here -->
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Loading map...</span>
+                    </div>
+                </div>
+                <div class="route-details">
+                    <div class="route-info">
+                        <h4>Pickup Location</h4>
+                        <p id="pickup-location"></p>
+                        <h4>Delivery Location</h4>
+                        <p id="delivery-location"></p>
+                    </div>
+                    <div class="route-stats">
+                        <div class="stat">
+                            <i class="fas fa-route"></i>
+                            <span id="route-distance"></span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-clock"></i>
+                            <span id="route-duration"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="open-in-maps" class="btn-primary">
+                    <i class="fas fa-external-link-alt"></i> Open in Maps
+                </button>
             </div>
         </div>
     </div>
