@@ -45,7 +45,7 @@
                     <i class="fas fa-chart-line"></i>
                     <span>Dashboard</span>
                 </div>
-                <div class="tab" data-tab="dashboard">
+                <div class="tab">
                     <i class="fas fa-chart-line"></i>
                     <a href="./admin.html"><span>Admin</span></a>
                 </div>
@@ -563,7 +563,7 @@
                         </form>
                     </div>
                 </div>
-                
+
                 <div class="info-section">
                     <div class="card">
                         <h3>New Requests</h3>
@@ -573,14 +573,14 @@
                             </div>
                         </div>
                     </div>
-        
+
                     <div class="card">
                         <h3>Accepted Requests</h3>
                         <div class="donation-requests" id="donor-accepted-requests">
                             <!-- Waiting for volunteers -->
                         </div>
                     </div>
-        
+
                     <div class="card">
                         <h3>Completed Requests</h3>
                         <div class="donation-requests" id="donor-completed-requests">
@@ -780,7 +780,7 @@
                             </div>
                         </div>
                     </div>
-        
+
                     <div class="card">
                         <h3>Your Active Deliveries</h3>
                         <div class="delivery-requests" id="volunteer-active-deliveries">
@@ -790,7 +790,7 @@
                             <!-- Map will appear here when showing route -->
                         </div>
                     </div>
-        
+
                     <div class="card">
                         <h3>Completed Deliveries</h3>
                         <div class="delivery-requests" id="volunteer-completed-deliveries">
@@ -1658,7 +1658,7 @@
     <script type="module" src="./DashboardScript.js"></script>
     <script>
         // Check if user is logged in, otherwise redirect to login page
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const currentUser = localStorage.getItem('currentUser') || sessionStorage.getItem('currentUser');
             if (!currentUser) {
                 window.location.href = 'login.html';
@@ -1671,7 +1671,7 @@
                 });
             }
         });
-    
+
         // Logout functionality (add this to your existing script.js)
         function logout() {
             localStorage.removeItem('currentUser');
