@@ -473,6 +473,52 @@ button:focus, input:focus, textarea:focus, select:focus {
     font-size: 1.1rem;
 }
 
+.user-menu {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: var(--radius-md);
+    transition: background-color var(--transition-fast);
+}
+
+.user-menu:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+.user-menu:hover .user-dropdown {
+    display: block;
+}
+
+.user-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--bg-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    min-width: 150px;
+    z-index: 100;
+}
+
+.user-dropdown a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: background-color var(--transition-fast);
+}
+
+.user-dropdown a:hover {
+    background-color: var(--bg-light);
+}
+
+.user-dropdown i {
+    margin-right: 0.5rem;
+}
 /* Forms */
 .modern-form {
     display: flex;
