@@ -17,7 +17,7 @@
 
 </head>
 
-<body onload="login.html">
+<body onload="window.location.href='./login.html'">
     <div class="app-container">
         <!-- Navigation tabs -->
         <nav class="main-navigation">
@@ -567,702 +567,707 @@
                 </div>
             </div>
         </div> -->
-<!-- Replace the entire dashboard section in your index.html with this code -->
-<div class="page-container" id="dashboard">
-    <div class="page-header">
-        <h2><i class="fas fa-chart-line"></i> Dashboard</h2>
-        <p>Track your contributions and impact with detailed analytics</p>
-    </div>
-
-    <div class="dashboard-layout">
-        <div class="dashboard-sidebar">
-            <div class="user-profile">
-                <div class="user-avatar large">
-                    <i class="fas fa-user"></i>
-                </div>
-                <h3 class="user-name">Guest User</h3>
-                <p class="user-status">Active Member</p>
-                <div class="user-stats">
-                    <div class="user-stat">
-                        <span class="stat-value">12</span>
-                        <span class="stat-label">Donations</span>
-                    </div>
-                    <div class="user-stat">
-                        <span class="stat-value">84</span>
-                        <span class="stat-label">Meals</span>
-                    </div>
-                    <div class="user-stat">
-                        <span class="stat-value">7</span>
-                        <span class="stat-label">Deliveries</span>
-                    </div>
-                </div>
+        <!-- Replace the entire dashboard section in your index.html with this code -->
+        <div class="page-container" id="dashboard">
+            <div class="page-header">
+                <h2><i class="fas fa-chart-line"></i> Dashboard</h2>
+                <p>Track your contributions and impact with detailed analytics</p>
             </div>
 
-            <nav class="dashboard-nav">
-                <a href="#" class="dashboard-nav-item active" data-section="overview">
-                    <i class="fas fa-home"></i>
-                    <span>Overview</span>
-                </a>
-                <a href="#" class="dashboard-nav-item" data-section="donations">
-                    <i class="fas fa-hand-holding-heart"></i>
-                    <span>Your Donations</span>
-                </a>
-                <a href="#" class="dashboard-nav-item" data-section="requests">
-                    <i class="fas fa-utensil-spoon"></i>
-                    <span>Your Requests</span>
-                </a>
-                <a href="#" class="dashboard-nav-item" data-section="deliveries">
-                    <i class="fas fa-truck"></i>
-                    <span>Your Deliveries</span>
-                </a>
-                <a href="#" class="dashboard-nav-item" data-section="settings">
-                    <i class="fas fa-cog"></i>
-                    <span>Settings</span>
-                </a>
-                <a href="#" class="dashboard-nav-item" data-section="reports">
-                    <i class="fas fa-file-alt"></i>
-                    <span>Reports</span>
-                </a>
-            </nav>
-        </div>
+            <div class="dashboard-layout">
+                <div class="dashboard-sidebar">
+                    <div class="user-profile">
+                        <div class="user-avatar large">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="user-name">Guest User</h3>
+                        <p class="user-status">Active Member</p>
+                        <div class="user-stats">
+                            <div class="user-stat">
+                                <span class="stat-value">12</span>
+                                <span class="stat-label">Donations</span>
+                            </div>
+                            <div class="user-stat">
+                                <span class="stat-value">84</span>
+                                <span class="stat-label">Meals</span>
+                            </div>
+                            <div class="user-stat">
+                                <span class="stat-value">7</span>
+                                <span class="stat-label">Deliveries</span>
+                            </div>
+                        </div>
+                    </div>
 
-        <div class="dashboard-content">
-            <div class="dashboard-section active" id="dashboard-overview">
-                <div class="dashboard-cards">
-                    <div class="dashboard-card">
-                        <div class="dashboard-card-icon">
+                    <nav class="dashboard-nav">
+                        <a href="#" class="dashboard-nav-item active" data-section="overview">
+                            <i class="fas fa-home"></i>
+                            <span>Overview</span>
+                        </a>
+                        <a href="#" class="dashboard-nav-item" data-section="donations">
                             <i class="fas fa-hand-holding-heart"></i>
-                        </div>
-                        <div class="dashboard-card-content">
-                            <h4>Your Donations</h4>
-                            <div class="dashboard-card-value" id="user-donations-count">12</div>
-                            <div class="dashboard-card-change positive">
-                                <i class="fas fa-arrow-up"></i> 15% from last month
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dashboard-card">
-                        <div class="dashboard-card-icon">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <div class="dashboard-card-content">
-                            <h4>Meals Provided</h4>
-                            <div class="dashboard-card-value" id="user-meals-count">84</div>
-                            <div class="dashboard-card-change positive">
-                                <i class="fas fa-arrow-up"></i> 22% from last month
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dashboard-card">
-                        <div class="dashboard-card-icon">
+                            <span>Your Donations</span>
+                        </a>
+                        <a href="#" class="dashboard-nav-item" data-section="requests">
+                            <i class="fas fa-utensil-spoon"></i>
+                            <span>Your Requests</span>
+                        </a>
+                        <a href="#" class="dashboard-nav-item" data-section="deliveries">
                             <i class="fas fa-truck"></i>
-                        </div>
-                        <div class="dashboard-card-content">
-                            <h4>Deliveries Made</h4>
-                            <div class="dashboard-card-value" id="user-deliveries-count">7</div>
-                            <div class="dashboard-card-change negative">
-                                <i class="fas fa-arrow-down"></i> 5% from last month
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dashboard-card">
-                        <div class="dashboard-card-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="dashboard-card-content">
-                            <h4>People Helped</h4>
-                            <div class="dashboard-card-value" id="people-helped-count">150</div>
-                            <div class="dashboard-card-change positive">
-                                <i class="fas fa-arrow-up"></i> 30% from last month
-                            </div>
-                        </div>
-                    </div>
+                            <span>Your Deliveries</span>
+                        </a>
+                        <a href="#" class="dashboard-nav-item" data-section="settings">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                        <a href="#" class="dashboard-nav-item" data-section="reports">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Reports</span>
+                        </a>
+                    </nav>
                 </div>
 
-                <div class="dashboard-data-section">
-                    <div class="dashboard-chart-container">
-                        <div class="chart-header">
-                            <h3>Monthly Activity</h3>
-                            <div class="chart-filter">
-                                <select id="chart-timeframe">
-                                    <option value="7">Last 7 Days</option>
-                                    <option value="30" selected>Last 30 Days</option>
-                                    <option value="90">Last 90 Days</option>
-                                    <option value="365">Last Year</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="chart-wrapper">
-                            <canvas id="activityChart"></canvas>
-                        </div>
-                    </div>
-
-                    <div class="recent-activity">
-                        <div class="activity-header">
-                            <h3>Recent Activity</h3>
-                            <button class="btn-view-all">View All</button>
-                        </div>
-                        <div class="activity-list" id="recent-activities">
-                            <div class="activity-item">
-                                <div class="activity-icon">
+                <div class="dashboard-content">
+                    <div class="dashboard-section active" id="dashboard-overview">
+                        <div class="dashboard-cards">
+                            <div class="dashboard-card">
+                                <div class="dashboard-card-icon">
                                     <i class="fas fa-hand-holding-heart"></i>
                                 </div>
-                                <div class="activity-details">
-                                    <div class="activity-title">Food Donated</div>
-                                    <div class="activity-description">You donated Fresh Vegetables (5kg)</div>
-                                    <div class="activity-time">2 hours ago</div>
-                                </div>
-                                <div class="activity-badge">
-                                    <span class="badge success">Completed</span>
-                                </div>
-                            </div>
-                            <div class="activity-item">
-                                <div class="activity-icon">
-                                    <i class="fas fa-truck"></i>
-                                </div>
-                                <div class="activity-details">
-                                    <div class="activity-title">Delivery Completed</div>
-                                    <div class="activity-description">You delivered meals to Riverside Community Center</div>
-                                    <div class="activity-time">1 day ago</div>
-                                </div>
-                                <div class="activity-badge">
-                                    <span class="badge success">Completed</span>
+                                <div class="dashboard-card-content">
+                                    <h4>Your Donations</h4>
+                                    <div class="dashboard-card-value" id="user-donations-count">12</div>
+                                    <div class="dashboard-card-change positive">
+                                        <i class="fas fa-arrow-up"></i> 15% from last month
+                                    </div>
                                 </div>
                             </div>
-                            <div class="activity-item">
-                                <div class="activity-icon">
-                                    <i class="fas fa-people-carry-box"></i>
-                                </div>
-                                <div class="activity-details">
-                                    <div class="activity-title">Kitchen Help</div>
-                                    <div class="activity-description">You volunteered at Downtown Community Kitchen</div>
-                                    <div class="activity-time">3 days ago</div>
-                                </div>
-                                <div class="activity-badge">
-                                    <span class="badge warning">Pending</span>
-                                </div>
-                            </div>
-                            <div class="activity-item">
-                                <div class="activity-icon">
+                            <div class="dashboard-card">
+                                <div class="dashboard-card-icon">
                                     <i class="fas fa-utensils"></i>
                                 </div>
-                                <div class="activity-details">
-                                    <div class="activity-title">Food Request</div>
-                                    <div class="activity-description">Your request for 4 meals has been processed</div>
-                                    <div class="activity-time">5 days ago</div>
+                                <div class="dashboard-card-content">
+                                    <h4>Meals Provided</h4>
+                                    <div class="dashboard-card-value" id="user-meals-count">84</div>
+                                    <div class="dashboard-card-change positive">
+                                        <i class="fas fa-arrow-up"></i> 22% from last month
+                                    </div>
                                 </div>
-                                <div class="activity-badge">
-                                    <span class="badge success">Completed</span>
+                            </div>
+                            <div class="dashboard-card">
+                                <div class="dashboard-card-icon">
+                                    <i class="fas fa-truck"></i>
+                                </div>
+                                <div class="dashboard-card-content">
+                                    <h4>Deliveries Made</h4>
+                                    <div class="dashboard-card-value" id="user-deliveries-count">7</div>
+                                    <div class="dashboard-card-change negative">
+                                        <i class="fas fa-arrow-down"></i> 5% from last month
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dashboard-card">
+                                <div class="dashboard-card-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="dashboard-card-content">
+                                    <h4>People Helped</h4>
+                                    <div class="dashboard-card-value" id="people-helped-count">150</div>
+                                    <div class="dashboard-card-change positive">
+                                        <i class="fas fa-arrow-up"></i> 30% from last month
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-data-section">
+                            <div class="dashboard-chart-container">
+                                <div class="chart-header">
+                                    <h3>Monthly Activity</h3>
+                                    <div class="chart-filter">
+                                        <select id="chart-timeframe">
+                                            <option value="7">Last 7 Days</option>
+                                            <option value="30" selected>Last 30 Days</option>
+                                            <option value="90">Last 90 Days</option>
+                                            <option value="365">Last Year</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="chart-wrapper">
+                                    <canvas id="activityChart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="recent-activity">
+                                <div class="activity-header">
+                                    <h3>Recent Activity</h3>
+                                    <button class="btn-view-all">View All</button>
+                                </div>
+                                <div class="activity-list" id="recent-activities">
+                                    <div class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-hand-holding-heart"></i>
+                                        </div>
+                                        <div class="activity-details">
+                                            <div class="activity-title">Food Donated</div>
+                                            <div class="activity-description">You donated Fresh Vegetables (5kg)</div>
+                                            <div class="activity-time">2 hours ago</div>
+                                        </div>
+                                        <div class="activity-badge">
+                                            <span class="badge success">Completed</span>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-truck"></i>
+                                        </div>
+                                        <div class="activity-details">
+                                            <div class="activity-title">Delivery Completed</div>
+                                            <div class="activity-description">You delivered meals to Riverside Community
+                                                Center</div>
+                                            <div class="activity-time">1 day ago</div>
+                                        </div>
+                                        <div class="activity-badge">
+                                            <span class="badge success">Completed</span>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-people-carry-box"></i>
+                                        </div>
+                                        <div class="activity-details">
+                                            <div class="activity-title">Kitchen Help</div>
+                                            <div class="activity-description">You volunteered at Downtown Community
+                                                Kitchen</div>
+                                            <div class="activity-time">3 days ago</div>
+                                        </div>
+                                        <div class="activity-badge">
+                                            <span class="badge warning">Pending</span>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-utensils"></i>
+                                        </div>
+                                        <div class="activity-details">
+                                            <div class="activity-title">Food Request</div>
+                                            <div class="activity-description">Your request for 4 meals has been
+                                                processed</div>
+                                            <div class="activity-time">5 days ago</div>
+                                        </div>
+                                        <div class="activity-badge">
+                                            <span class="badge success">Completed</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="impact-section">
+                            <h3>Your Impact</h3>
+                            <div class="impact-metrics">
+                                <div class="impact-metric">
+                                    <div class="metric-value">42 kg</div>
+                                    <div class="metric-label">Food Waste Prevented</div>
+                                </div>
+                                <div class="impact-metric">
+                                    <div class="metric-value">120 L</div>
+                                    <div class="metric-label">Water Saved</div>
+                                </div>
+                                <div class="impact-metric">
+                                    <div class="metric-value">84 kg</div>
+                                    <div class="metric-label">CO2 Emissions Reduced</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="impact-section">
-                    <h3>Your Impact</h3>
-                    <div class="impact-metrics">
-                        <div class="impact-metric">
-                            <div class="metric-value">42 kg</div>
-                            <div class="metric-label">Food Waste Prevented</div>
+                    <div class="dashboard-section" id="dashboard-donations">
+                        <div class="section-header">
+                            <h3>Your Donations</h3>
+                            <button class="btn-primary" id="new-donation-btn">
+                                <i class="fas fa-plus"></i> New Donation
+                            </button>
                         </div>
-                        <div class="impact-metric">
-                            <div class="metric-value">120 L</div>
-                            <div class="metric-label">Water Saved</div>
+
+                        <div class="filter-bar">
+                            <div class="filter-group">
+                                <label for="donation-status">Status</label>
+                                <select id="donation-status">
+                                    <option value="all">All Statuses</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="completed">Completed</option>
+                                    <option value="cancelled">Cancelled</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label for="donation-date">Date Range</label>
+                                <select id="donation-date">
+                                    <option value="all">All Time</option>
+                                    <option value="today">Today</option>
+                                    <option value="week">This Week</option>
+                                    <option value="month" selected>This Month</option>
+                                    <option value="year">This Year</option>
+                                    <option value="custom">Custom</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label for="donation-type">Food Type</label>
+                                <select id="donation-type">
+                                    <option value="all">All Types</option>
+                                    <option value="fresh">Fresh Produce</option>
+                                    <option value="packaged">Packaged Food</option>
+                                    <option value="cooked">Cooked Meals</option>
+                                </select>
+                            </div>
+                            <button class="btn-filter">
+                                <i class="fas fa-filter"></i> Apply Filters
+                            </button>
                         </div>
-                        <div class="impact-metric">
-                            <div class="metric-value">84 kg</div>
-                            <div class="metric-label">CO2 Emissions Reduced</div>
+
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Food Type</th>
+                                        <th>Quantity</th>
+                                        <th>Location</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Apr 3, 2025</td>
+                                        <td>Fresh Vegetables</td>
+                                        <td>8 kg</td>
+                                        <td>Downtown Community Center</td>
+                                        <td><span class="badge success">Completed</span></td>
+                                        <td>
+                                            <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-icon"><i class="fas fa-print"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Apr 2, 2025</td>
+                                        <td>Baked Goods</td>
+                                        <td>24 items</td>
+                                        <td>Riverside Bakery</td>
+                                        <td><span class="badge success">Completed</span></td>
+                                        <td>
+                                            <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-icon"><i class="fas fa-print"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Apr 1, 2025</td>
+                                        <td>Canned Foods</td>
+                                        <td>15 items</td>
+                                        <td>North End Grocery</td>
+                                        <td><span class="badge warning">Pending</span></td>
+                                        <td>
+                                            <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-icon"><i class="fas fa-print"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="pagination">
+                            <button class="btn-pagination" disabled>
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="btn-pagination active">1</button>
+                            <button class="btn-pagination">2</button>
+                            <button class="btn-pagination">3</button>
+                            <button class="btn-pagination">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="dashboard-section" id="dashboard-donations">
-                <div class="section-header">
-                    <h3>Your Donations</h3>
-                    <button class="btn-primary" id="new-donation-btn">
-                        <i class="fas fa-plus"></i> New Donation
-                    </button>
-                </div>
-                
-                <div class="filter-bar">
-                    <div class="filter-group">
-                        <label for="donation-status">Status</label>
-                        <select id="donation-status">
-                            <option value="all">All Statuses</option>
-                            <option value="pending">Pending</option>
-                            <option value="completed">Completed</option>
-                            <option value="cancelled">Cancelled</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="donation-date">Date Range</label>
-                        <select id="donation-date">
-                            <option value="all">All Time</option>
-                            <option value="today">Today</option>
-                            <option value="week">This Week</option>
-                            <option value="month" selected>This Month</option>
-                            <option value="year">This Year</option>
-                            <option value="custom">Custom</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="donation-type">Food Type</label>
-                        <select id="donation-type">
-                            <option value="all">All Types</option>
-                            <option value="fresh">Fresh Produce</option>
-                            <option value="packaged">Packaged Food</option>
-                            <option value="cooked">Cooked Meals</option>
-                        </select>
-                    </div>
-                    <button class="btn-filter">
-                        <i class="fas fa-filter"></i> Apply Filters
-                    </button>
-                </div>
-                
-                <div class="table-responsive">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Food Type</th>
-                                <th>Quantity</th>
-                                <th>Location</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Apr 3, 2025</td>
-                                <td>Fresh Vegetables</td>
-                                <td>8 kg</td>
-                                <td>Downtown Community Center</td>
-                                <td><span class="badge success">Completed</span></td>
-                                <td>
-                                    <button class="btn-icon"><i class="fas fa-eye"></i></button>
-                                    <button class="btn-icon"><i class="fas fa-print"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Apr 2, 2025</td>
-                                <td>Baked Goods</td>
-                                <td>24 items</td>
-                                <td>Riverside Bakery</td>
-                                <td><span class="badge success">Completed</span></td>
-                                <td>
-                                    <button class="btn-icon"><i class="fas fa-eye"></i></button>
-                                    <button class="btn-icon"><i class="fas fa-print"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Apr 1, 2025</td>
-                                <td>Canned Foods</td>
-                                <td>15 items</td>
-                                <td>North End Grocery</td>
-                                <td><span class="badge warning">Pending</span></td>
-                                <td>
-                                    <button class="btn-icon"><i class="fas fa-eye"></i></button>
-                                    <button class="btn-icon"><i class="fas fa-print"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div class="pagination">
-                    <button class="btn-pagination" disabled>
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="btn-pagination active">1</button>
-                    <button class="btn-pagination">2</button>
-                    <button class="btn-pagination">3</button>
-                    <button class="btn-pagination">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="dashboard-section" id="dashboard-requests">
-                <div class="section-header">
-                    <h3>Your Food Requests</h3>
-                    <button class="btn-primary" id="new-request-btn">
-                        <i class="fas fa-plus"></i> New Request
-                    </button>
-                </div>
-                
-                <div class="table-responsive">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Request ID</th>
-                                <th>Meals</th>
-                                <th>Location</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Apr 4, 2025</td>
-                                <td>#REQ-1001</td>
-                                <td>4 meals</td>
-                                <td>123 Main St</td>
-                                <td><span class="badge success">Delivered</span></td>
-                                <td>
-                                    <button class="btn-icon"><i class="fas fa-eye"></i></button>
-                                    <button class="btn-icon"><i class="fas fa-redo"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Apr 2, 2025</td>
-                                <td>#REQ-1000</td>
-                                <td>2 meals</td>
-                                <td>123 Main St</td>
-                                <td><span class="badge success">Delivered</span></td>
-                                <td>
-                                    <button class="btn-icon"><i class="fas fa-eye"></i></button>
-                                    <button class="btn-icon"><i class="fas fa-redo"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Mar 28, 2025</td>
-                                <td>#REQ-0999</td>
-                                <td>3 meals</td>
-                                <td>123 Main St</td>
-                                <td><span class="badge error">Cancelled</span></td>
-                                <td>
-                                    <button class="btn-icon"><i class="fas fa-eye"></i></button>
-                                    <button class="btn-icon"><i class="fas fa-redo"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div class="pagination">
-                    <button class="btn-pagination" disabled>
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="btn-pagination active">1</button>
-                    <button class="btn-pagination">2</button>
-                    <button class="btn-pagination">3</button>
-                    <button class="btn-pagination">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="dashboard-section" id="dashboard-deliveries">
-                <div class="section-header">
-                    <h3>Your Deliveries</h3>
-                    <button class="btn-primary" id="new-delivery-btn">
-                        <i class="fas fa-plus"></i> New Delivery
-                    </button>
-                </div>
-                
-                <div class="delivery-cards">
-                    <div class="delivery-card">
-                        <div class="delivery-header">
-                            <div class="delivery-id">#DEL-2001</div>
-                            <div class="delivery-status"><span class="badge success">Completed</span></div>
+                    <div class="dashboard-section" id="dashboard-requests">
+                        <div class="section-header">
+                            <h3>Your Food Requests</h3>
+                            <button class="btn-primary" id="new-request-btn">
+                                <i class="fas fa-plus"></i> New Request
+                            </button>
                         </div>
-                        <div class="delivery-body">
-                            <div class="delivery-info">
-                                <div class="info-item">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <span>From: Downtown Farm Market</span>
+
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Request ID</th>
+                                        <th>Meals</th>
+                                        <th>Location</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Apr 4, 2025</td>
+                                        <td>#REQ-1001</td>
+                                        <td>4 meals</td>
+                                        <td>123 Main St</td>
+                                        <td><span class="badge success">Delivered</span></td>
+                                        <td>
+                                            <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-icon"><i class="fas fa-redo"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Apr 2, 2025</td>
+                                        <td>#REQ-1000</td>
+                                        <td>2 meals</td>
+                                        <td>123 Main St</td>
+                                        <td><span class="badge success">Delivered</span></td>
+                                        <td>
+                                            <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-icon"><i class="fas fa-redo"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mar 28, 2025</td>
+                                        <td>#REQ-0999</td>
+                                        <td>3 meals</td>
+                                        <td>123 Main St</td>
+                                        <td><span class="badge error">Cancelled</span></td>
+                                        <td>
+                                            <button class="btn-icon"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-icon"><i class="fas fa-redo"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="pagination">
+                            <button class="btn-pagination" disabled>
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="btn-pagination active">1</button>
+                            <button class="btn-pagination">2</button>
+                            <button class="btn-pagination">3</button>
+                            <button class="btn-pagination">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-section" id="dashboard-deliveries">
+                        <div class="section-header">
+                            <h3>Your Deliveries</h3>
+                            <button class="btn-primary" id="new-delivery-btn">
+                                <i class="fas fa-plus"></i> New Delivery
+                            </button>
+                        </div>
+
+                        <div class="delivery-cards">
+                            <div class="delivery-card">
+                                <div class="delivery-header">
+                                    <div class="delivery-id">#DEL-2001</div>
+                                    <div class="delivery-status"><span class="badge success">Completed</span></div>
                                 </div>
-                                <div class="info-item">
-                                    <i class="fas fa-map-marker"></i>
-                                    <span>To: Lakeview Community Center</span>
-                                </div>
-                                <div class="info-item">
-                                    <i class="fas fa-box-open"></i>
-                                    <span>Items: Fresh Produce (15kg)</span>
-                                </div>
-                                <div class="info-item">
-                                    <i class="fas fa-clock"></i>
-                                    <span>Time: Apr 4, 2025 · 2:00 PM</span>
+                                <div class="delivery-body">
+                                    <div class="delivery-info">
+                                        <div class="info-item">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <span>From: Downtown Farm Market</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <i class="fas fa-map-marker"></i>
+                                            <span>To: Lakeview Community Center</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <i class="fas fa-box-open"></i>
+                                            <span>Items: Fresh Produce (15kg)</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <i class="fas fa-clock"></i>
+                                            <span>Time: Apr 4, 2025 · 2:00 PM</span>
+                                        </div>
+                                    </div>
+                                    <div class="delivery-actions">
+                                        <button class="btn-secondary">
+                                            <i class="fas fa-map-marked-alt"></i> View Route
+                                        </button>
+                                        <button class="btn-primary">
+                                            <i class="fas fa-redo"></i> Repeat
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="delivery-actions">
+
+                            <div class="delivery-card">
+                                <div class="delivery-header">
+                                    <div class="delivery-id">#DEL-2000</div>
+                                    <div class="delivery-status"><span class="badge warning">In Progress</span></div>
+                                </div>
+                                <div class="delivery-body">
+                                    <div class="delivery-info">
+                                        <div class="info-item">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <span>From: Sunrise Bakery</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <i class="fas fa-map-marker"></i>
+                                            <span>To: Hope Street Shelter</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <i class="fas fa-box-open"></i>
+                                            <span>Items: Bread and Pastries (30 items)</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <i class="fas fa-clock"></i>
+                                            <span>Time: Apr 4, 2025 · 5:00 PM</span>
+                                        </div>
+                                    </div>
+                                    <div class="delivery-actions">
+                                        <button class="btn-secondary">
+                                            <i class="fas fa-map-marked-alt"></i> View Route
+                                        </button>
+                                        <button class="btn-primary">
+                                            <i class="fas fa-check"></i> Mark Complete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-section" id="dashboard-settings">
+                        <div class="section-header">
+                            <h3>Account Settings</h3>
+                        </div>
+
+                        <div class="settings-tabs">
+                            <div class="settings-tab active" data-tab="profile">Profile</div>
+                            <div class="settings-tab" data-tab="notifications">Notifications</div>
+                            <div class="settings-tab" data-tab="privacy">Privacy</div>
+                        </div>
+
+                        <div class="settings-content">
+                            <form class="settings-form" id="profile-form">
+                                <div class="form-group">
+                                    <label for="profile-name">Full Name</label>
+                                    <input type="text" id="profile-name" value="Guest User">
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="profile-email">Email Address</label>
+                                        <input type="email" id="profile-email" value="guest@example.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profile-phone">Phone Number</label>
+                                        <input type="tel" id="profile-phone" value="(123) 456-7890">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="profile-address">Address</label>
+                                    <textarea id="profile-address">123 Main St, Anytown, USA</textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="profile-bio">About You</label>
+                                    <textarea
+                                        id="profile-bio">Community kitchen volunteer and food waste reduction advocate.</textarea>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" class="btn-secondary">Cancel</button>
+                                    <button type="submit" class="btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-section" id="dashboard-reports">
+                        <div class="section-header">
+                            <h3>Reports & Analytics</h3>
+                            <div class="report-actions">
                                 <button class="btn-secondary">
-                                    <i class="fas fa-map-marked-alt"></i> View Route
+                                    <i class="fas fa-download"></i> Export
                                 </button>
                                 <button class="btn-primary">
-                                    <i class="fas fa-redo"></i> Repeat
+                                    <i class="fas fa-print"></i> Print
                                 </button>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="delivery-card">
-                        <div class="delivery-header">
-                            <div class="delivery-id">#DEL-2000</div>
-                            <div class="delivery-status"><span class="badge warning">In Progress</span></div>
+
+                        <div class="report-filters">
+                            <div class="filter-group">
+                                <label for="report-type">Report Type</label>
+                                <select id="report-type">
+                                    <option value="donations">Donations</option>
+                                    <option value="requests">Requests</option>
+                                    <option value="deliveries">Deliveries</option>
+                                    <option value="impact">Impact</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label for="report-period">Time Period</label>
+                                <select id="report-period">
+                                    <option value="week">This Week</option>
+                                    <option value="month" selected>This Month</option>
+                                    <option value="quarter">This Quarter</option>
+                                    <option value="year">This Year</option>
+                                    <option value="custom">Custom Range</option>
+                                </select>
+                            </div>
+                            <button class="btn-primary">
+                                <i class="fas fa-chart-bar"></i> Generate Report
+                            </button>
                         </div>
-                        <div class="delivery-body">
-                            <div class="delivery-info">
-                                <div class="info-item">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <span>From: Sunrise Bakery</span>
+
+                        <div class="report-container">
+                            <div class="report-header">
+                                <h4>Monthly Donation Report - April 2025</h4>
+                                <div class="report-date">Generated: April 4, 2025</div>
+                            </div>
+
+                            <div class="report-summary">
+                                <div class="summary-card">
+                                    <div class="summary-value">12</div>
+                                    <div class="summary-label">Total Donations</div>
                                 </div>
-                                <div class="info-item">
-                                    <i class="fas fa-map-marker"></i>
-                                    <span>To: Hope Street Shelter</span>
+                                <div class="summary-card">
+                                    <div class="summary-value">84 kg</div>
+                                    <div class="summary-label">Total Food</div>
                                 </div>
-                                <div class="info-item">
-                                    <i class="fas fa-box-open"></i>
-                                    <span>Items: Bread and Pastries (30 items)</span>
+                                <div class="summary-card">
+                                    <div class="summary-value">42</div>
+                                    <div class="summary-label">People Served</div>
                                 </div>
-                                <div class="info-item">
+                            </div>
+
+                            <div class="report-chart">
+                                <canvas id="donationChart"></canvas>
+                            </div>
+
+                            <div class="report-details">
+                                <h5>Donation Breakdown</h5>
+                                <table class="report-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Type</th>
+                                            <th>Quantity</th>
+                                            <th>Location</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Apr 3, 2025</td>
+                                            <td>Fresh Vegetables</td>
+                                            <td>8 kg</td>
+                                            <td>Downtown Community Center</td>
+                                            <td>Completed</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Apr 2, 2025</td>
+                                            <td>Baked Goods</td>
+                                            <td>24 items</td>
+                                            <td>Riverside Bakery</td>
+                                            <td>Completed</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Apr 1, 2025</td>
+                                            <td>Canned Foods</td>
+                                            <td>15 items</td>
+                                            <td>North End Grocery</td>
+                                            <td>Pending</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add this to your request page -->
+        <div class="page-container" id="request">
+            <!-- ... existing request form ... -->
+
+            <!-- Communication Modal (hidden by default) -->
+            <div class="modal" id="communication-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Discuss Request Details</h3>
+                        <button class="close-modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="message-container" id="message-container">
+                            <!-- Messages will appear here -->
+                        </div>
+                        <div class="message-input">
+                            <input type="text" id="message-input" placeholder="Type your message...">
+                            <button id="send-message">Send</button>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="formalize-request" class="btn-primary">Confirm Request</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Modal (hidden by default) -->
+            <div class="modal" id="map-modal">
+                <div class="modal-content large">
+                    <div class="modal-header">
+                        <h3>Delivery Route</h3>
+                        <button class="close-modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="map-container" id="interactive-map">
+                            <!-- Map will be loaded here -->
+                            <div class="map-placeholder">
+                                <i class="fas fa-map-marked-alt"></i>
+                                <span>Loading map...</span>
+                            </div>
+                        </div>
+                        <div class="route-details">
+                            <div class="route-info">
+                                <h4>Pickup Location</h4>
+                                <p id="pickup-location"></p>
+                                <h4>Delivery Location</h4>
+                                <p id="delivery-location"></p>
+                            </div>
+                            <div class="route-stats">
+                                <div class="stat">
+                                    <i class="fas fa-route"></i>
+                                    <span id="route-distance"></span>
+                                </div>
+                                <div class="stat">
                                     <i class="fas fa-clock"></i>
-                                    <span>Time: Apr 4, 2025 · 5:00 PM</span>
+                                    <span id="route-duration"></span>
                                 </div>
                             </div>
-                            <div class="delivery-actions">
-                                <button class="btn-secondary">
-                                    <i class="fas fa-map-marked-alt"></i> View Route
-                                </button>
-                                <button class="btn-primary">
-                                    <i class="fas fa-check"></i> Mark Complete
-                                </button>
-                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="dashboard-section" id="dashboard-settings">
-                <div class="section-header">
-                    <h3>Account Settings</h3>
-                </div>
-                
-                <div class="settings-tabs">
-                    <div class="settings-tab active" data-tab="profile">Profile</div>
-                    <div class="settings-tab" data-tab="notifications">Notifications</div>
-                    <div class="settings-tab" data-tab="privacy">Privacy</div>
-                </div>
-                
-                <div class="settings-content">
-                    <form class="settings-form" id="profile-form">
-                        <div class="form-group">
-                            <label for="profile-name">Full Name</label>
-                            <input type="text" id="profile-name" value="Guest User">
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="profile-email">Email Address</label>
-                                <input type="email" id="profile-email" value="guest@example.com">
-                            </div>
-                            <div class="form-group">
-                                <label for="profile-phone">Phone Number</label>
-                                <input type="tel" id="profile-phone" value="(123) 456-7890">
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="profile-address">Address</label>
-                            <textarea id="profile-address">123 Main St, Anytown, USA</textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="profile-bio">About You</label>
-                            <textarea id="profile-bio">Community kitchen volunteer and food waste reduction advocate.</textarea>
-                        </div>
-                        
-                        <div class="form-actions">
-                            <button type="button" class="btn-secondary">Cancel</button>
-                            <button type="submit" class="btn-primary">Save Changes</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="dashboard-section" id="dashboard-reports">
-                <div class="section-header">
-                    <h3>Reports & Analytics</h3>
-                    <div class="report-actions">
-                        <button class="btn-secondary">
-                            <i class="fas fa-download"></i> Export
-                        </button>
-                        <button class="btn-primary">
-                            <i class="fas fa-print"></i> Print
+                    <div class="modal-footer">
+                        <button id="open-in-maps" class="btn-primary">
+                            <i class="fas fa-external-link-alt"></i> Open in Maps
                         </button>
                     </div>
                 </div>
-                
-                <div class="report-filters">
-                    <div class="filter-group">
-                        <label for="report-type">Report Type</label>
-                        <select id="report-type">
-                            <option value="donations">Donations</option>
-                            <option value="requests">Requests</option>
-                            <option value="deliveries">Deliveries</option>
-                            <option value="impact">Impact</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="report-period">Time Period</label>
-                        <select id="report-period">
-                            <option value="week">This Week</option>
-                            <option value="month" selected>This Month</option>
-                            <option value="quarter">This Quarter</option>
-                            <option value="year">This Year</option>
-                            <option value="custom">Custom Range</option>
-                        </select>
-                    </div>
-                    <button class="btn-primary">
-                        <i class="fas fa-chart-bar"></i> Generate Report
-                    </button>
-                </div>
-                
-                <div class="report-container">
-                    <div class="report-header">
-                        <h4>Monthly Donation Report - April 2025</h4>
-                        <div class="report-date">Generated: April 4, 2025</div>
-                    </div>
-                    
-                    <div class="report-summary">
-                        <div class="summary-card">
-                            <div class="summary-value">12</div>
-                            <div class="summary-label">Total Donations</div>
-                        </div>
-                        <div class="summary-card">
-                            <div class="summary-value">84 kg</div>
-                            <div class="summary-label">Total Food</div>
-                        </div>
-                        <div class="summary-card">
-                            <div class="summary-value">42</div>
-                            <div class="summary-label">People Served</div>
-                        </div>
-                    </div>
-                    
-                    <div class="report-chart">
-                        <canvas id="donationChart"></canvas>
-                    </div>
-                    
-                    <div class="report-details">
-                        <h5>Donation Breakdown</h5>
-                        <table class="report-table">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Type</th>
-                                    <th>Quantity</th>
-                                    <th>Location</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Apr 3, 2025</td>
-                                    <td>Fresh Vegetables</td>
-                                    <td>8 kg</td>
-                                    <td>Downtown Community Center</td>
-                                    <td>Completed</td>
-                                </tr>
-                                <tr>
-                                    <td>Apr 2, 2025</td>
-                                    <td>Baked Goods</td>
-                                    <td>24 items</td>
-                                    <td>Riverside Bakery</td>
-                                    <td>Completed</td>
-                                </tr>
-                                <tr>
-                                    <td>Apr 1, 2025</td>
-                                    <td>Canned Foods</td>
-                                    <td>15 items</td>
-                                    <td>North End Grocery</td>
-                                    <td>Pending</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
             </div>
         </div>
-    </div>
-</div>
-
-<!-- Add this to your request page -->
-<div class="page-container" id="request">
-    <!-- ... existing request form ... -->
-    
-    <!-- Communication Modal (hidden by default) -->
-    <div class="modal" id="communication-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Discuss Request Details</h3>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="message-container" id="message-container">
-                    <!-- Messages will appear here -->
-                </div>
-                <div class="message-input">
-                    <input type="text" id="message-input" placeholder="Type your message...">
-                    <button id="send-message">Send</button>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button id="formalize-request" class="btn-primary">Confirm Request</button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Map Modal (hidden by default) -->
-    <div class="modal" id="map-modal">
-        <div class="modal-content large">
-            <div class="modal-header">
-                <h3>Delivery Route</h3>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="map-container" id="interactive-map">
-                    <!-- Map will be loaded here -->
-                    <div class="map-placeholder">
-                        <i class="fas fa-map-marked-alt"></i>
-                        <span>Loading map...</span>
-                    </div>
-                </div>
-                <div class="route-details">
-                    <div class="route-info">
-                        <h4>Pickup Location</h4>
-                        <p id="pickup-location"></p>
-                        <h4>Delivery Location</h4>
-                        <p id="delivery-location"></p>
-                    </div>
-                    <div class="route-stats">
-                        <div class="stat">
-                            <i class="fas fa-route"></i>
-                            <span id="route-distance"></span>
-                        </div>
-                        <div class="stat">
-                            <i class="fas fa-clock"></i>
-                            <span id="route-duration"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button id="open-in-maps" class="btn-primary">
-                    <i class="fas fa-external-link-alt"></i> Open in Maps
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
         <!-- Toast notifications container -->
         <div class="toast-container" id="toast-container"></div>
     </div>
 
-    <script src="script.js"></script>
-    <script src="./DashboardScript.js"></script>
+    <script src="script.js" type="module"></script>
+    <script src="./DashboardScript.js" type="module"></script>
+
 </body>
 
 </html>
