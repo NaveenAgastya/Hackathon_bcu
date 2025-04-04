@@ -34,102 +34,145 @@
             color: #333;
         }
 
-        .admin-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Sidebar & Layout */
+        .admin-layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: var(--dark-color);
+            color: white;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-header h1 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .sidebar-header i {
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+
+        .sidebar-menu {
+            padding: 20px 0;
+        }
+
+        .sidebar-menu .menu-item {
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .sidebar-menu .menu-item:hover,
+        .sidebar-menu .menu-item.active {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: white;
+            border-left-color: var(--primary-color);
+        }
+
+        .sidebar-menu .menu-item i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: 250px;
             padding: 20px;
         }
 
-        .admin-header {
+        /* Top Navigation */
+        .top-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding-bottom: 20px;
             margin-bottom: 20px;
-            padding-bottom: 10px;
             border-bottom: 1px solid var(--grey-color);
         }
 
-        .admin-header h1 {
-            color: var(--primary-dark);
+        .page-title h1 {
+            font-size: 24px;
+            color: var(--dark-color);
+        }
+
+        .user-area {
             display: flex;
             align-items: center;
-            gap: 10px;
-        }
-
-        .admin-header h1 i {
-            color: var(--primary-color);
-        }
-
-        .admin-controls {
-            display: flex;
             gap: 15px;
         }
 
-        .admin-search {
-            position: relative;
+        .user-info {
+            text-align: right;
         }
 
-        .admin-search input {
-            padding: 10px 15px 10px 40px;
-            border: 1px solid var(--grey-color);
-            border-radius: var(--border-radius);
-            width: 300px;
-            font-size: 14px;
-            outline: none;
-            transition: all 0.3s ease;
+        .user-name {
+            font-weight: 600;
+            color: var(--dark-color);
         }
 
-        .admin-search input:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
-        }
-
-        .admin-search i {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
+        .user-role {
+            font-size: 12px;
             color: #666;
         }
 
-        .filter-btn {
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .logout-btn {
             background-color: white;
             border: 1px solid var(--grey-color);
-            padding: 10px 15px;
+            padding: 8px 15px;
             border-radius: var(--border-radius);
+            color: #666;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .filter-btn:hover {
-            border-color: var(--primary-color);
+        .logout-btn:hover {
+            border-color: var(--danger-color);
+            color: var(--danger-color);
         }
 
-        .refresh-btn {
-            background-color: var(--info-color);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: var(--border-radius);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .refresh-btn:hover {
-            background-color: #0b7dda;
-        }
-
+        /* Dashboard Stats */
         .stats-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .stat-card {
@@ -192,11 +235,13 @@
             color: var(--danger-color);
         }
 
+        /* Data Table */
         .data-container {
             background-color: white;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             overflow: hidden;
+            margin-bottom: 30px;
         }
 
         .data-header {
@@ -212,55 +257,90 @@
             color: var(--dark-color);
         }
 
-        .data-filters {
+        .header-actions {
             display: flex;
             gap: 10px;
         }
 
-        .filter-pill {
-            background-color: #f1f1f1;
-            padding: 5px 15px;
-            border-radius: 20px;
+        .action-btn {
+            padding: 8px 15px;
+            border-radius: var(--border-radius);
             font-size: 14px;
             cursor: pointer;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
-        .filter-pill.active {
+        .btn-primary {
             background-color: var(--primary-color);
             color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .btn-outline {
+            background-color: white;
+            border: 1px solid var(--grey-color);
+            color: #666;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .search-input {
+            position: relative;
+        }
+
+        .search-input input {
+            padding: 8px 15px 8px 35px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 14px;
+        }
+
+        .search-input i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
         }
 
         .table-container {
             overflow-x: auto;
-            padding: 20px;
         }
 
-        table {
+        .data-table {
             width: 100%;
             border-collapse: collapse;
         }
 
-        th {
-            text-align: left;
-            padding: 12px 15px;
+        .data-table th {
             background-color: #f9f9f9;
             color: #333;
             font-weight: 600;
+            text-align: left;
+            padding: 15px;
             border-bottom: 2px solid #eee;
         }
 
-        td {
-            padding: 12px 15px;
+        .data-table td {
+            padding: 15px;
             border-bottom: 1px solid #eee;
-            color: #333;
         }
 
-        tr:hover {
+        .data-table tr:hover {
             background-color: #f9f9f9;
         }
 
-        .status {
+        .status-badge {
             padding: 5px 10px;
             border-radius: 20px;
             font-size: 12px;
@@ -268,32 +348,32 @@
             display: inline-block;
         }
 
-        .status.pending {
+        .pending {
             background-color: rgba(255, 193, 7, 0.15);
-            color: #FFC107;
+            color: var(--warning-color);
         }
 
-        .status.approved {
+        .approved {
             background-color: rgba(76, 175, 80, 0.15);
             color: var(--success-color);
         }
 
-        .status.completed {
+        .completed {
             background-color: rgba(33, 150, 243, 0.15);
             color: var(--info-color);
         }
 
-        .status.rejected {
+        .rejected {
             background-color: rgba(244, 67, 54, 0.15);
             color: var(--danger-color);
         }
 
-        .actions {
+        .table-actions {
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
 
-        .action-btn {
+        .table-action-btn {
             width: 32px;
             height: 32px;
             border-radius: 4px;
@@ -303,7 +383,6 @@
             cursor: pointer;
             transition: all 0.3s ease;
             border: none;
-            font-size: 14px;
         }
 
         .view-btn {
@@ -315,83 +394,199 @@
             background-color: rgba(33, 150, 243, 0.3);
         }
 
-        .approve-btn {
-            background-color: rgba(76, 175, 80, 0.15);
-            color: var(--success-color);
+        .edit-btn {
+            background-color: rgba(255, 152, 0, 0.15);
+            color: var(--secondary-color);
         }
 
-        .approve-btn:hover {
-            background-color: rgba(76, 175, 80, 0.3);
+        .edit-btn:hover {
+            background-color: rgba(255, 152, 0, 0.3);
         }
 
-        .reject-btn {
+        .delete-btn {
             background-color: rgba(244, 67, 54, 0.15);
             color: var(--danger-color);
         }
 
-        .reject-btn:hover {
+        .delete-btn:hover {
             background-color: rgba(244, 67, 54, 0.3);
         }
 
-        .pagination {
+        .data-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            padding: 15px 20px;
             border-top: 1px solid #eee;
         }
 
-        .pagination-info {
+        .page-info {
             color: #666;
             font-size: 14px;
         }
 
-        .pagination-controls {
+        .pagination {
             display: flex;
-            gap: 10px;
+            gap: 5px;
         }
 
-        .pagination-btn {
+        .page-btn {
             width: 32px;
             height: 32px;
-            border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
+            border-radius: 4px;
             cursor: pointer;
             transition: all 0.3s ease;
-            border: 1px solid #ddd;
             background-color: white;
-            color: #333;
+            border: 1px solid #ddd;
+            color: #666;
         }
 
-        .pagination-btn:hover {
-            border-color: var(--primary-color);
-            color: var(--primary-color);
-        }
-
-        .pagination-btn.active {
+        .page-btn.active {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
             color: white;
         }
 
-        .pagination-btn.disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
+        .page-btn:hover:not(.active) {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
         }
 
+        /* Empty state */
+        .empty-state {
+            padding: 50px 20px;
+            text-align: center;
+            color: #666;
+        }
+
+        .empty-state i {
+            font-size: 48px;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        .empty-state h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        /* Loader */
+        .loader-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Toast Notifications */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .toast {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 10px;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            width: 300px;
+            animation: slideIn 0.3s ease, fadeOut 0.5s ease 2.5s forwards;
+            position: relative;
+        }
+
+        .toast-icon {
+            font-size: 20px;
+        }
+
+        .toast-success .toast-icon {
+            color: var(--success-color);
+        }
+
+        .toast-error .toast-icon {
+            color: var(--danger-color);
+        }
+
+        .toast-message {
+            flex: 1;
+        }
+
+        .toast-close {
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            right: 0;
+            bottom: 0;
             background-color: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-            justify-content: center;
+            z-index: 1000;
             align-items: center;
+            justify-content: center;
         }
 
         .modal-content {
@@ -402,12 +597,12 @@
             max-width: 600px;
             max-height: 90vh;
             overflow-y: auto;
-            animation: slideIn 0.3s ease;
+            animation: modalSlideIn 0.3s ease;
         }
 
-        @keyframes slideIn {
+        @keyframes modalSlideIn {
             from {
-                transform: translateY(-50px);
+                transform: translateY(-30px);
                 opacity: 0;
             }
 
@@ -435,941 +630,19 @@
             border: none;
             font-size: 20px;
             cursor: pointer;
-            color: #666;
+            color: #999;
         }
 
         .modal-body {
             padding: 20px;
         }
 
-        .donation-detail {
-            margin-bottom: 15px;
-        }
-
-        .detail-label {
-            font-weight: 600;
-            color: #666;
-            margin-bottom: 5px;
-        }
-
-        .detail-value {
-            color: #333;
-        }
-
         .modal-footer {
-            padding: 20px;
+            padding: 15px 20px;
             border-top: 1px solid #eee;
             display: flex;
             justify-content: flex-end;
             gap: 10px;
         }
 
-        .modal-btn {
-            padding: 10px 15px;
-            border-radius: var(--border-radius);
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-        }
-
-        .modal-btn.cancel {
-            background-color: #f1f1f1;
-            color: #333;
-        }
-
-        .modal-btn.approve {
-            background-color: var(--success-color);
-            color: white;
-        }
-
-        .modal-btn.reject {
-            background-color: var(--danger-color);
-            color: white;
-        }
-
-        .loader-container {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.8);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .loader {
-            width: 50px;
-            height: 50px;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid var(--primary-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        .notification-container {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 9999;
-        }
-
-        .notification {
-            background-color: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            margin-bottom: 10px;
-            width: 300px;
-            overflow: hidden;
-            transform: translateX(100%);
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-
-        .notification.show {
-            transform: translateX(0);
-            opacity: 1;
-        }
-
-        .notification-content {
-            display: flex;
-            padding: 15px;
-        }
-
-        .notification-icon {
-            margin-right: 15px;
-            font-size: 20px;
-        }
-
-        .notification.success .notification-icon {
-            color: var(--success-color);
-        }
-
-        .notification.error .notification-icon {
-            color: var(--danger-color);
-        }
-
-        .notification-message {
-            flex: 1;
-        }
-
-        .notification-close {
-            background: none;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-            color: #666;
-            padding: 5px;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
-
-        .empty-state {
-            padding: 40px;
-            text-align: center;
-            color: #666;
-        }
-
-        .empty-state i {
-            font-size: 60px;
-            color: #ddd;
-            margin-bottom: 20px;
-        }
-
-        .empty-state h3 {
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .no-result {
-            display: none;
-            padding: 30px;
-            text-align: center;
-            color: #666;
-        }
-
-        @media (max-width: 768px) {
-            .admin-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
-
-            .admin-controls {
-                width: 100%;
-                flex-direction: column;
-            }
-
-            .admin-search input {
-                width: 100%;
-            }
-
-            .stats-container {
-                grid-template-columns: 1fr;
-            }
-
-            th,
-            td {
-                padding: 10px 8px;
-                font-size: 13px;
-            }
-
-            .action-btn {
-                width: 28px;
-                height: 28px;
-            }
-        }
-    </style>
-</head>
-
-<body>
-    <div class="admin-container">
-        <div class="admin-header">
-            <h1><i class="fas fa-hand-holding-heart"></i> Food Donations Admin</h1>
-            <div class="admin-controls">
-                <div class="admin-search">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="search-input" placeholder="Search donations...">
-                </div>
-                <button class="filter-btn" id="filter-btn">
-                    <i class="fas fa-filter"></i> Filter
-                </button>
-                <button class="refresh-btn" id="refresh-btn">
-                    <i class="fas fa-sync-alt"></i> Refresh
-                </button>
-            </div>
-        </div>
-
-        <div class="stats-container">
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-list"></i>
-                </div>
-                <div class="stat-info">
-                    <div class="stat-value" id="total-donations">0</div>
-                    <div class="stat-label">Total Donations</div>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-clock"></i>
-                </div>
-                <div class="stat-info">
-                    <div class="stat-value" id="pending-donations">0</div>
-                    <div class="stat-label">Pending Approval</div>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-check-circle"></i>
-                </div>
-                <div class="stat-info">
-                    <div class="stat-value" id="approved-donations">0</div>
-                    <div class="stat-label">Approved</div>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-ban"></i>
-                </div>
-                <div class="stat-info">
-                    <div class="stat-value" id="rejected-donations">0</div>
-                    <div class="stat-label">Rejected</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="data-container">
-            <div class="data-header">
-                <h2>Food Donation Listings</h2>
-                <div class="data-filters">
-                    <div class="filter-pill active" data-filter="all">All</div>
-                    <div class="filter-pill" data-filter="pending">Pending</div>
-                    <div class="filter-pill" data-filter="approved">Approved</div>
-                    <div class="filter-pill" data-filter="completed">Completed</div>
-                    <div class="filter-pill" data-filter="rejected">Rejected</div>
-                </div>
-            </div>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Food Type</th>
-                            <th>Donor</th>
-                            <th>Quantity</th>
-                            <th>Expiry Date</th>
-                            <th>Pickup Location</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="donations-table-body">
-                        <!-- Table data will be populated dynamically -->
-                    </tbody>
-                </table>
-                <div class="empty-state" id="empty-state">
-                    <i class="fas fa-box-open"></i>
-                    <h3>No donations found</h3>
-                    <p>There are no food donations in the system yet.</p>
-                </div>
-                <div class="no-result" id="no-result">
-                    <h3>No matching results</h3>
-                    <p>Try adjusting your search or filters.</p>
-                </div>
-            </div>
-            <div class="pagination">
-                <div class="pagination-info" id="pagination-info">
-                    Showing 0-0 of 0 donations
-                </div>
-                <div class="pagination-controls" id="pagination-controls">
-                    <!-- Pagination controls will be added dynamically -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Donation Detail Modal -->
-    <div class="modal" id="donation-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Donation Details</h3>
-                <button class="modal-close" id="modal-close">&times;</button>
-            </div>
-            <div class="modal-body" id="modal-body">
-                <!-- Modal content will be populated dynamically -->
-            </div>
-            <div class="modal-footer">
-                <button class="modal-btn cancel" id="modal-cancel">Close</button>
-                <button class="modal-btn approve" id="modal-approve">Approve Donation</button>
-                <button class="modal-btn reject" id="modal-reject">Reject Donation</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Loader -->
-    <div class="loader-container" id="loader">
-        <div class="loader"></div>
-    </div>
-
-    <!-- Scripts -->
-    <script type="module">
-        // Import Firebase modules
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
-        import {
-            getFirestore,
-            collection,
-            getDocs,
-            doc,
-            updateDoc,
-            query,
-            where,
-            orderBy,
-            limit,
-            startAfter,
-            getDoc,
-            onSnapshot
-        } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
-        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
-
-        // Firebase configuration - using the same config from your existing code
-        const firebaseConfig = {
-            apiKey: "AIzaSyAr_XPhkXgr2TDF0j8m9QfSogA1L_iLiYw",
-            authDomain: "rescuebits-9d15a.firebaseapp.com",
-            databaseURL: "https://rescuebits-9d15a-default-rtdb.firebaseio.com",
-            projectId: "rescuebits-9d15a",
-            storageBucket: "rescuebits-9d15a.firebaseapp.com",
-            messagingSenderId: "395509961192",
-            appId: "1:395509961192:web:7de4c07d55bcdf37ec945d",
-            measurementId: "G-J5QCYT3BVE"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-        const auth = getAuth(app);
-
-        // Global variables
-        let allDonations = [];
-        let currentFilter = 'all';
-        let currentPage = 1;
-        let itemsPerPage = 10;
-        let lastVisible = null;
-        let currentDonationId = null;
-        let unsubscribe = null;
-
-        // DOM Elements
-        const donationsTableBody = document.getElementById('donations-table-body');
-        const emptyState = document.getElementById('empty-state');
-        const noResult = document.getElementById('no-result');
-        const paginationInfo = document.getElementById('pagination-info');
-        const paginationControls = document.getElementById('pagination-controls');
-        const totalDonationsEl = document.getElementById('total-donations');
-        const pendingDonationsEl = document.getElementById('pending-donations');
-        const approvedDonationsEl = document.getElementById('approved-donations');
-        const rejectedDonationsEl = document.getElementById('rejected-donations');
-        const searchInput = document.getElementById('search-input');
-        const filterBtn = document.getElementById('filter-btn');
-        const refreshBtn = document.getElementById('refresh-btn');
-        const filterPills = document.querySelectorAll('.filter-pill');
-        const donationModal = document.getElementById('donation-modal');
-        const modalClose = document.getElementById('modal-close');
-        const modalCancel = document.getElementById('modal-cancel');
-        const modalApprove = document.getElementById('modal-approve');
-        const modalReject = document.getElementById('modal-reject');
-        const modalBody = document.getElementById('modal-body');
-        const loader = document.getElementById('loader');
-
-        // Initialize the admin panel
-        document.addEventListener('DOMContentLoaded', function () {
-            checkAuth();
-            setupEventListeners();
-            loadDonations();
-            setupRealtimeUpdates();
-        });
-
-        // Check if user is authenticated
-        function checkAuth() {
-            onAuthStateChanged(auth, (user) => {
-                if (!user) {
-                    // Redirect non-authenticated users
-                    window.location.href = 'login.html';
-                }
-            });
-        }
-
-        // Set up event listeners
-        function setupEventListeners() {
-            // Search functionality
-            searchInput.addEventListener('input', debounce(filterDonations, 300));
-
-            // Filter pills
-            filterPills.forEach(pill => {
-                pill.addEventListener('click', function () {
-                    // Remove active class from all pills
-                    filterPills.forEach(p => p.classList.remove('active'));
-                    // Add active class to clicked pill
-                    this.classList.add('active');
-                    // Update current filter
-                    currentFilter = this.getAttribute('data-filter');
-                    // Reset pagination
-                    currentPage = 1;
-                    lastVisible = null;
-                    // Load donations with new filter
-                    loadDonations();
-                });
-            });
-
-            // Refresh button
-            refreshBtn.addEventListener('click', function () {
-                // Reset pagination
-                currentPage = 1;
-                lastVisible = null;
-                // Load donations
-                loadDonations();
-            });
-
-            // Modal close events
-            modalClose.addEventListener('click', closeModal);
-            modalCancel.addEventListener('click', closeModal);
-
-            // Donation status buttons
-            modalApprove.addEventListener('click', function () {
-                updateDonationStatus('approved');
-            });
-
-            modalReject.addEventListener('click', function () {
-                updateDonationStatus('rejected');
-            });
-        }
-
-        // Load donations from Firestore
-        async function loadDonations() {
-            showLoader();
-
-            try {
-                // Create base query
-                let baseQuery = collection(db, "foodDonations");
-                let constraints = [];
-
-                // Add filter constraints
-                if (currentFilter !== 'all') {
-                    constraints.push(where("status", "==", currentFilter));
-                }
-
-                // Add order
-                constraints.push(orderBy("createdAt", "desc"));
-
-                // Add pagination
-                constraints.push(limit(itemsPerPage));
-
-                // Add startAfter if not first page
-                if (lastVisible) {
-                    constraints.push(startAfter(lastVisible));
-                }
-
-                // Create query with all constraints
-                let q = query(baseQuery, ...constraints);
-
-                // Execute query
-                const querySnapshot = await getDocs(q);
-
-                // Process results
-                if (querySnapshot.empty && currentPage === 1) {
-                    // No results for first page
-                    displayEmptyState(true);
-                    updatePagination(0, 0, 0);
-                } else {
-                    // Process results
-                    const donations = [];
-                    querySnapshot.forEach((doc) => {
-                        donations.push({
-                            id: doc.id,
-                            ...doc.data()
-                        });
-                    });
-
-                    // Update last visible for pagination
-                    lastVisible = querySnapshot.docs[querySnapshot.docs.length - 1];
-
-                    // Display donations
-                    displayDonations(donations);
-
-                    // Update pagination
-                    const startIndex = (currentPage - 1) * itemsPerPage + 1;
-                    const endIndex = startIndex + donations.length - 1;
-                    updatePagination(startIndex, endIndex, 0); // Total count not available
-                }
-
-                // Load statistics
-                await loadStats();
-
-            } catch (error) {
-                console.error("Error loading donations:", error);
-                showNotification('error', 'Error loading donations. Please try again.');
-            } finally {
-                hideLoader();
-            }
-        }
-
-        // Display donations in table
-        function displayDonations(donations) {
-            // Clear table
-            donationsTableBody.innerHTML = '';
-
-            // Hide empty state
-            displayEmptyState(false);
-
-            // Check if there are donations to display
-            if (donations.length === 0) {
-                // Show no results message
-                noResult.style.display = 'block';
-                return;
-            }
-
-            // Hide no results message
-            noResult.style.display = 'none';
-
-            // Add donations to table
-            donations.forEach(donation => {
-                const row = document.createElement('tr');
-
-                // Format date
-                let expiryDate = 'N/A';
-                if (donation.expiryDate) {
-                    expiryDate = new Date(donation.expiryDate).toLocaleDateString();
-                }
-
-                // Create donor name/email display
-                const donorDisplay = donation.donorName ?
-                    `${donation.donorName}<br><small>${donation.donorEmail || ''}</small>` :
-                    donation.donorEmail || 'Anonymous';
-
-                row.innerHTML = `
-                    <td>${donation.foodType || 'N/A'}</td>
-                    <td>${donorDisplay}</td>
-                    <td>${donation.quantity || 'N/A'}</td>
-                    <td>${expiryDate}</td>
-                    <td>${donation.pickupLocation || 'N/A'}</td>
-                    <td><span class="status ${donation.status}">${capitalizeFirstLetter(donation.status)}</span></td>
-                    <td class="actions">
-                        <button class="action-btn view-btn" data-id="${donation.id}" title="View Details">
-                            <i class="fas fa-eye"></i>
-                        </button>
-                        ${donation.status === 'pending' ? `
-                            <button class="action-btn approve-btn" data-id="${donation.id}" title="Approve">
-                                <i class="fas fa-check"></i>
-                            </button>
-                            <button class="action-btn reject-btn" data-id="${donation.id}" title="Reject">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        ` : ''}
-                    </td>
-                `;
-
-                donationsTableBody.appendChild(row);
-
-                // Add event listeners to action buttons
-                const viewBtn = row.querySelector('.view-btn');
-                viewBtn.addEventListener('click', () => openDonationModal(donation.id));
-
-                if (donation.status === 'pending') {
-                    const approveBtn = row.querySelector('.approve-btn');
-                    const rejectBtn = row.querySelector('.reject-btn');
-
-                    approveBtn.addEventListener('click', () => updateDonationStatus('approved', donation.id));
-                    rejectBtn.addEventListener('click', () => updateDonationStatus('rejected', donation.id));
-                }
-            });
-        }
-
-        // Load statistics for dashboard
-        async function loadStats() {
-            try {
-                // Get counts for different statuses
-                const statsQueries = [
-                    getDocs(query(collection(db, "foodDonations"))),
-                    getDocs(query(collection(db, "foodDonations"), where("status", "==", "pending"))),
-                    getDocs(query(collection(db, "foodDonations"), where("status", "==", "approved"))),
-                    getDocs(query(collection(db, "foodDonations"), where("status", "==", "rejected")))
-                ];
-
-                const [allSnapshot, pendingSnapshot, approvedSnapshot, rejectedSnapshot] = await Promise.all(statsQueries);
-
-                // Update stat elements
-                totalDonationsEl.textContent = allSnapshot.size;
-                pendingDonationsEl.textContent = pendingSnapshot.size;
-                approvedDonationsEl.textContent = approvedSnapshot.size;
-                rejectedDonationsEl.textContent = rejectedSnapshot.size;
-
-            } catch (error) {
-                console.error("Error loading statistics:", error);
-            }
-        }
-
-        // Filter donations based on search input
-        function filterDonations() {
-            const searchTerm = searchInput.value.toLowerCase().trim();
-
-            if (searchTerm === '') {
-                // Reset to normal view if search is empty
-                currentPage = 1;
-                lastVisible = null;
-                loadDonations();
-                return;
-            }
-
-            // Filter all donations based on search term
-            const filteredDonations = allDonations.filter(donation => {
-                // Search in various fields
-                return (
-                    (donation.foodType && donation.foodType.toLowerCase().includes(searchTerm)) ||
-                    (donation.donorName && donation.donorName.toLowerCase().includes(searchTerm)) ||
-                    (donation.donorEmail && donation.donorEmail.toLowerCase().includes(searchTerm)) ||
-                    (donation.pickupLocation && donation.pickupLocation.toLowerCase().includes(searchTerm)) ||
-                    (donation.notes && donation.notes.toLowerCase().includes(searchTerm))
-                );
-            });
-
-            // Apply status filter if needed
-            const statusFiltered = currentFilter === 'all' ?
-                filteredDonations :
-                filteredDonations.filter(d => d.status === currentFilter);
-
-            // Display filtered donations
-            if (statusFiltered.length === 0) {
-                // No results
-                donationsTableBody.innerHTML = '';
-                noResult.style.display = 'block';
-                emptyState.style.display = 'none';
-                updatePagination(0, 0, 0);
-            } else {
-                // Show results
-                displayDonations(statusFiltered);
-                noResult.style.display = 'none';
-                emptyState.style.display = 'none';
-                updatePagination(1, statusFiltered.length, statusFiltered.length);
-            }
-        }
-
-        // Open donation details modal
-        async function openDonationModal(donationId) {
-            showLoader();
-            currentDonationId = donationId;
-
-            try {
-                const donationDoc = await getDoc(doc(db, "foodDonations", donationId));
-
-                if (donationDoc.exists()) {
-                    const donation = donationDoc.data();
-
-                    // Format created date
-                    let createdDate = 'N/A';
-                    if (donation.createdAt) {
-                        createdDate = new Date(donation.createdAt.toDate()).toLocaleString();
-                    }
-
-                    // Format expiry date
-                    let expiryDate = 'N/A';
-                    if (donation.expiryDate) {
-                        expiryDate = new Date(donation.expiryDate).toLocaleDateString();
-                    }
-
-                    // Populate modal content
-                    modalBody.innerHTML = `
-                        <div class="donation-detail">
-                            <div class="detail-label">Food Type</div>
-                            <div class="detail-value">${donation.foodType || 'N/A'}</div>
-                        </div>
-                        <div class="donation-detail">
-                            <div class="detail-label">Quantity</div>
-                            <div class="detail-value">${donation.quantity || 'N/A'}</div>
-                        </div>
-                        <div class="donation-detail">
-                            <div class="detail-label">Expiry Date</div>
-                            <div class="detail-value">${expiryDate}</div>
-                        </div>
-                        <div class="donation-detail">
-                            <div class="detail-label">Donor Information</div>
-                            <div class="detail-value">
-                                ${donation.donorName || 'Anonymous'}<br>
-                                ${donation.donorEmail || 'N/A'}<br>
-                                ${donation.donorPhone || 'N/A'}
-                            </div>
-                        </div>
-                        <div class="donation-detail">
-                            <div class="detail-label">Pickup Location</div>
-                            <div class="detail-value">${donation.pickupLocation || 'N/A'}</div>
-                        </div>
-                        <div class="donation-detail">
-                            <div class="detail-label">Storage Requirements</div>
-                            <div class="detail-value">${donation.storageRequirements || 'N/A'}</div>
-                        </div>
-                        <div class="donation-detail">
-                            <div class="detail-label">Notes</div>
-                            <div class="detail-value">${donation.notes || 'No additional notes'}</div>
-                        </div>
-                        <div class="donation-detail">
-                            <div class="detail-label">Submitted On</div>
-                            <div class="detail-value">${createdDate}</div>
-                        </div>
-                        <div class="donation-detail">
-                            <div class="detail-label">Status</div>
-                            <div class="detail-value">
-                                <span class="status ${donation.status}">${capitalizeFirstLetter(donation.status)}</span>
-                            </div>
-                        </div>
-                    `;
-
-                    // Show/hide action buttons based on status
-                    if (donation.status === 'pending') {
-                        modalApprove.style.display = 'block';
-                        modalReject.style.display = 'block';
-                    } else {
-                        modalApprove.style.display = 'none';
-                        modalReject.style.display = 'none';
-                    }
-
-                    // Show modal
-                    donationModal.style.display = 'flex';
-
-                } else {
-                    showNotification('error', 'Donation not found');
-                }
-
-            } catch (error) {
-                console.error("Error loading donation details:", error);
-                showNotification('error', 'Error loading donation details');
-            } finally {
-                hideLoader();
-            }
-        }
-
-        // Close donation modal
-        function closeModal() {
-            donationModal.style.display = 'none';
-            currentDonationId = null;
-        }
-
-        // Update donation status
-        async function updateDonationStatus(status, donationId = null) {
-            showLoader();
-
-            try {
-                // Use the ID from the parameter or the current modal
-                const id = donationId || currentDonationId;
-
-                if (!id) {
-                    throw new Error('No donation ID provided');
-                }
-
-                // Update the document
-                await updateDoc(doc(db, "foodDonations", id), {
-                    status: status,
-                    updatedAt: new Date()
-                });
-
-                // Close modal if open
-                if (!donationId) {
-                    closeModal();
-                }
-
-                // Show success notification
-                showNotification('success', `Donation ${status} successfully`);
-
-                // Reload donations
-                loadDonations();
-
-            } catch (error) {
-                console.error("Error updating donation status:", error);
-                showNotification('error', 'Error updating donation status');
-            } finally {
-                hideLoader();
-            }
-        }
-
-        // Setup realtime updates
-        function setupRealtimeUpdates() {
-            // Unsubscribe from previous listener if exists
-            if (unsubscribe) {
-                unsubscribe();
-            }
-
-            // Create a listener for new donations
-            unsubscribe = onSnapshot(
-                query(collection(db, "foodDonations"), where("status", "==", "pending"), orderBy("createdAt", "desc"), limit(5)),
-                (snapshot) => {
-                    snapshot.docChanges().forEach((change) => {
-                        if (change.type === "added" && !change.doc.metadata.hasPendingWrites) {
-                            // Show notification for new pending donations
-                            showNotification('success', 'New donation received! Please review.');
-                            // Reload stats
-                            loadStats();
-                        }
-                    });
-                },
-                (error) => {
-                    console.error("Error in realtime updates:", error);
-                }
-            );
-        }
-
-        // Update pagination controls and info
-        function updatePagination(start, end, total) {
-            // Update info text
-            if (start === 0 && end === 0) {
-                paginationInfo.textContent = 'No donations found';
-            } else {
-                paginationInfo.textContent = `Showing ${start}-${end} of ${total || 'many'} donations`;
-            }
-
-            // TODO: Add pagination controls if needed
-        }
-
-        // Display empty state or table
-        function displayEmptyState(show) {
-            if (show) {
-                emptyState.style.display = 'block';
-                donationsTableBody.innerHTML = '';
-                noResult.style.display = 'none';
-            } else {
-                emptyState.style.display = 'none';
-            }
-        }
-
-        // Show loader
-        function showLoader() {
-            loader.style.display = 'flex';
-        }
-
-        // Hide loader
-        function hideLoader() {
-            loader.style.display = 'none';
-        }
-
-        // Show notification
-        function showNotification(type, message) {
-            // Create notification element
-            const notification = document.createElement('div');
-            notification.className = `notification ${type}`;
-
-            notification.innerHTML = `
-                <div class="notification-content">
-                    <div class="notification-icon">
-                        <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
-                    </div>
-                    <div class="notification-message">${message}</div>
-                </div>
-                <button class="notification-close">&times;</button>
-            `;
-
-            // Create container if it doesn't exist
-            let container = document.querySelector('.notification-container');
-            if (!container) {
-                container = document.createElement('div');
-                container.className = 'notification-container';
-                document.body.appendChild(container);
-            }
-
-            // Add notification to container
-            container.appendChild(notification);
-
-            // Show notification with animation
-            setTimeout(() => {
-                notification.classList.add('show');
-            }, 10);
-
-            // Add close button event
-            const closeBtn = notification.querySelector('.notification-close');
-            closeBtn.addEventListener('click', () => {
-                notification.classList.remove('show');
-                setTimeout(() => {
-                    notification.remove();
-                }, 300);
-            });
-
-            // Auto close after 5 seconds
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.classList.remove('show');
-                    setTimeout(() => {
-                        notification.remove();
-                    }, 300);
-                }
-            }, 5000);
-        }
-
-        // Helper function to capitalize first letter
-        function capitalizeFirstLetter(string) {
-            return string.charAt(0).toUpperCase() + string.slice(1);
-        }
-
-        // Helper function to debounce search input
-        function debounce(func, delay) {
-            let timeoutId;
-            return function () {
-                const context = this;
-                const args = arguments;
-                clearTimeout(timeoutId);
-                timeoutId = setTimeout(() => {
-                    func.apply(context, args);
-                }, delay);
-            };
-        }
-    </script>
-</body>
-
-</html>
+        /* Media queries */
