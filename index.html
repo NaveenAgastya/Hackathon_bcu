@@ -211,15 +211,28 @@
                         </form>
                     </div>
                 </div>
-
+                
                 <div class="info-section">
                     <div class="card">
-                        <h3>Nearby Food Donations</h3>
-                        <div class="donation-list" id="nearby-donations">
-                            <!-- Donations will be added dynamically -->
+                        <h3>New Requests</h3>
+                        <div class="donation-requests" id="donor-pending-requests">
                             <div class="loading-spinner">
                                 <i class="fas fa-spinner fa-spin"></i>
                             </div>
+                        </div>
+                    </div>
+        
+                    <div class="card">
+                        <h3>Accepted Requests</h3>
+                        <div class="donation-requests" id="donor-accepted-requests">
+                            <!-- Waiting for volunteers -->
+                        </div>
+                    </div>
+        
+                    <div class="card">
+                        <h3>Completed Requests</h3>
+                        <div class="donation-requests" id="donor-completed-requests">
+                            <!-- Completed requests -->
                         </div>
                     </div>
 
@@ -406,11 +419,27 @@
                 <div class="info-section">
                     <div class="card">
                         <h3>Available Deliveries</h3>
-                        <div class="delivery-list" id="available-deliveries">
-                            <!-- Deliveries will be added dynamically -->
+                        <div class="delivery-requests" id="volunteer-available-requests">
                             <div class="loading-spinner">
                                 <i class="fas fa-spinner fa-spin"></i>
                             </div>
+                        </div>
+                    </div>
+        
+                    <div class="card">
+                        <h3>Your Active Deliveries</h3>
+                        <div class="delivery-requests" id="volunteer-active-deliveries">
+                            <!-- Active deliveries -->
+                        </div>
+                        <div id="delivery-map-container">
+                            <!-- Map will appear here when showing route -->
+                        </div>
+                    </div>
+        
+                    <div class="card">
+                        <h3>Completed Deliveries</h3>
+                        <div class="delivery-requests" id="volunteer-completed-deliveries">
+                            <!-- Completed deliveries -->
                         </div>
                     </div>
 
@@ -1271,6 +1300,7 @@
     </div>
     <script type="module" src="./database.js"></script>
     <script type="module" src="script.js"></script>
+    <script src="notifications.js"></script>
     <script type="module" src="./DashboardScript.js"></script>
     <script>
         // Check if user is logged in, otherwise redirect to login page
