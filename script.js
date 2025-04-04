@@ -420,3 +420,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initialize with home page and load initial data
     switchTab('home');
 });
+
+// Add this to your existing event listeners
+document.getElementById('logout-btn')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    logout();
+});
