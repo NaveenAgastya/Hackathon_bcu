@@ -1,12 +1,11 @@
-// Import Firebase SDK
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js';
-import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js';
-import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js';
+// Firebase Configuration and Form Submission Handler
 
-// Your Firebase configuration - replace with your actual config
+// 1. Initialize Firebase (place this in your main JS file)
+// You'll need to replace these values with your actual Firebase project config
 const firebaseConfig = {
     apiKey: "AIzaSyAr_XPhkXgr2TDF0j8m9QfSogA1L_iLiYw",
     authDomain: "rescuebits-9d15a.firebaseapp.com",
+    databaseURL: "https://rescuebits-9d15a-default-rtdb.firebaseio.com",
     projectId: "rescuebits-9d15a",
     storageBucket: "rescuebits-9d15a.firebasestorage.app",
     messagingSenderId: "395509961192",
@@ -15,134 +14,96 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const auth = getAuth(app);
+firebase.initializeApp(firebaseConfig);
 
-// Wait for DOM to load
-document.addEventListener('DOMContentLoaded', () => {
-    // Get form element
-    const donateForm = document.getElementById('donate-form');
+// Get a reference to the database service
+const database = firebase.database();
 
-    // Add submit event listener to the form
-    donateForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
+// 2. Form submission handler
+document.getElementById('donate-form').addEventListener('submit', submitForm);
 
-        // Show loading state
-        const submitBtn = modern - form.querySelector('.submit-btn');
-        const originalBtnText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-        submitBtn.disabled = true;
+function submitForm(e) {
+    e.preventDefault();
 
-        try {
-            // Check if user is authenticated
-            const user = auth.currentUser;
+    // Get form values
+    const foodType = getInputVal('food-type');
+    const quantity = getInputVal('quantity');
+    const expiryDate = getInputVal('expiry-date');
+    const pickupLocation = getInputVal('pickup-location');
+    const pickupTime = getInputVal('pickup-time');
+    const donationNotes = getInputVal('donation-notes');
 
-            if (!user) {
-                showNotification('error', 'You must be logged in to submit a donation');
-                submitBtn.innerHTML = originalBtnText;
-                submitBtn.disabled = false;
-                return;
-            }
+    // Create donation object
+    const donation = {
+        foodType,
+        quantity,
+        expiryDate,
+        pickupLocation,
+        pickupTime,
+        donationNotes,
+        status: 'pending', // Initial status
+        createdAt: firebase.database.ServerValue.TIMESTAMP
+    };
 
-            // Get form data
-            const formData = {
-                foodType: document.getElementById('food-type').value,
-                quantity: document.getElementById('quantity').value,
-                expiryDate: document.getElementById('expiry-date').value,
-                pickupLocation: document.getElementById('pickup-location').value,
-                pickupTime: document.getElementById('pickup-time').value,
-                notes: document.getElementById('donation-notes').value,
-                userId: user.uid,
-                userEmail: user.email,
-                userName: user.displayName || 'Anonymous',
-                status: 'available', // Initial status of donation
-                createdAt: serverTimestamp(),
-                updatedAt: serverTimestamp()
-            };
+    // Save donation to Firebase
+    saveDonation(donation);
 
-            // Save to Firestore
-            const docRef = await addDoc(collection(db, "foodDonations"), formData);
-            console.log("Donation submitted with ID: ", docRef.id);
+    // Show success message
+    showSuccessMessage();
 
-            // Show success message
-            showNotification('success', 'Your food donation has been successfully submitted!');
+    // Clear form
+    document.getElementById('donate-form').reset();
+}
 
-            // Reset form
-            donateForm.reset();
+// Helper function to get form values
+function getInputVal(id) {
+    return document.getElementById(id).value;
+}
 
-        } catch (error) {
-            console.error("Error submitting donation: ", error);
-            showNotification('error', 'Error submitting donation. Please try again.');
-        }
+// Save donation to Firebase
+function saveDonation(donation) {
+    // Generate a new key for the donation
+    const newDonationKey = database.ref().child('donations').push().key;
 
-        // Reset button state
-        submitBtn.innerHTML = originalBtnText;
-        submitBtn.disabled = false;
-    });
+    // Write the new donation data
+    const updates = {};
+    updates['/donations/' + newDonationKey] = donation;
 
-    // Check authentication state on page load
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            console.log("User is signed in");
-            // We could pre-fill some fields here if needed
-        } else {
-            console.log("No user is signed in");
-            // Optionally redirect to login page or show login prompt
-        }
-    });
-});
+    // You might also want to maintain a list of donations by user if you implement authentication
+    // updates['/user-donations/' + userId + '/' + newDonationKey] = donation;
 
-// Function to show notification
-function showNotification(type, message) {
-    // Create notification element if it doesn't exist
-    let notification = document.querySelector('.notification');
+    return database.ref().update(updates);
+}
 
-    if (!notification) {
-        notification = document.createElement('div');
-        notification.className = 'notification';
-        document.body.appendChild(notification);
-    }
+// Show success message
+function showSuccessMessage() {
+    const successAlert = document.createElement('div');
+    successAlert.className = 'alert alert-success';
+    successAlert.role = 'alert';
+    successAlert.textContent = 'Your donation has been submitted successfully!';
 
-    // Clear any existing classes and add the type
-    notification.className = 'notification';
-    notification.classList.add(type);
+    // Insert the alert before the form
+    const form = document.getElementById('donate-form');
+    form.parentNode.insertBefore(successAlert, form);
 
-    // Set icon based on notification type
-    let icon = type === 'success'
-        ? '<i class="fas fa-check-circle"></i>'
-        : '<i class="fas fa-exclamation-circle"></i>';
-
-    // Set notification content
-    notification.innerHTML = `
-    <div class="notification-content">
-      <div class="notification-icon">${icon}</div>
-      <div class="notification-message">${message}</div>
-    </div>
-    <button class="notification-close"><i class="fas fa-times"></i></button>
-  `;
-
-    // Add show class to trigger animation
+    // Remove the alert after 3 seconds
     setTimeout(() => {
-        notification.classList.add('show');
-    }, 10);
+        successAlert.remove();
+    }, 3000);
+}
 
-    // Add close button functionality
-    const closeBtn = notification.querySelector('.notification-close');
-    closeBtn.addEventListener('click', () => {
-        notification.classList.remove('show');
-        setTimeout(() => {
-            notification.remove();
-        }, 300);
+// 3. Optional: Add functions to retrieve donations (for admin panel)
+function getAllDonations(callback) {
+    const donationsRef = firebase.database().ref('donations');
+    donationsRef.on('value', (snapshot) => {
+        const donations = snapshot.val();
+        callback(donations);
     });
+}
 
-    // Auto-hide after 5 seconds for success messages
-    if (type === 'success') {
-        setTimeout(() => {
-            notification.classList.remove('show');
-            setTimeout(() => {
-                notification.remove();
-            }, 300);
-        }, 5000);
-    }
+// Function to update donation status (for admin)
+function updateDonationStatus(donationId, newStatus) {
+    const updates = {};
+    updates['/donations/' + donationId + '/status'] = newStatus;
+    return database.ref().update(updates);
 }

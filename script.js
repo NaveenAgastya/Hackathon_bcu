@@ -1,5 +1,5 @@
 // Community Kitchen Network - Main Application Script
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // DOM Elements
     const tabElements = document.querySelectorAll('.tab');
     const pageContainers = document.querySelectorAll('.page-container');
@@ -93,19 +93,19 @@ document.addEventListener('DOMContentLoaded', function() {
     function showToast(message, type = 'success') {
         const toast = document.createElement('div');
         toast.className = `toast ${type}`;
-        
+
         let icon = 'fa-circle-check';
         if (type === 'warning') icon = 'fa-triangle-exclamation';
         if (type === 'error') icon = 'fa-circle-xmark';
         if (type === 'info') icon = 'fa-circle-info';
-        
+
         toast.innerHTML = `
             <i class="fas ${icon}"></i>
             <span>${message}</span>
         `;
-        
+
         toastContainer.appendChild(toast);
-        
+
         // Remove toast after 4 seconds
         setTimeout(() => {
             toast.style.opacity = '0';
@@ -121,30 +121,30 @@ document.addEventListener('DOMContentLoaded', function() {
         function animateCounter(element, target, duration = 2000) {
             const startTime = performance.now();
             const startValue = 0;
-            
+
             function updateCounter(currentTime) {
                 const elapsedTime = currentTime - startTime;
                 const progress = Math.min(elapsedTime / duration, 1);
-                
+
                 // Easing function for smoother animation
                 const easeOutQuad = progress * (2 - progress);
                 const currentValue = Math.floor(startValue + (target - startValue) * easeOutQuad);
-                
+
                 element.textContent = currentValue.toLocaleString();
-                
+
                 if (progress < 1) {
                     requestAnimationFrame(updateCounter);
                 }
             }
-            
+
             requestAnimationFrame(updateCounter);
         }
-        
+
         // Update and animate stats
         const mealsSavedElement = document.getElementById('meals-saved');
         const totalDonorsElement = document.getElementById('total-donors');
         const totalVolunteersElement = document.getElementById('total-volunteers');
-        
+
         animateCounter(mealsSavedElement, sampleImpactData.mealsSaved);
         animateCounter(totalDonorsElement, sampleImpactData.totalDonors);
         animateCounter(totalVolunteersElement, sampleImpactData.totalVolunteers);
@@ -152,10 +152,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function loadNearbyDonations() {
         const nearbyDonationsContainer = document.getElementById('nearby-donations');
-        
+
         // Clear loading spinner
         nearbyDonationsContainer.innerHTML = '';
-        
+
         if (sampleDonations.length === 0) {
             nearbyDonationsContainer.innerHTML = `
                 <div class="empty-state">
@@ -165,14 +165,14 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             return;
         }
-        
+
         // Create donation items
         sampleDonations.forEach(donation => {
             const donationItem = document.createElement('div');
             donationItem.className = 'donation-item';
-            
+
             const statusClass = donation.status === 'Completed' ? 'status-completed' : 'status-pending';
-            
+
             donationItem.innerHTML = `
                 <div class="donation-icon">
                     <i class="fas fa-box-open"></i>
@@ -184,17 +184,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="donation-status ${statusClass}">${donation.status}</div>
                 </div>
             `;
-            
+
             nearbyDonationsContainer.appendChild(donationItem);
         });
     }
 
     function loadAvailableFood() {
         const availableFoodContainer = document.getElementById('available-food');
-        
+
         // Clear loading spinner
         availableFoodContainer.innerHTML = '';
-        
+
         if (sampleAvailableFood.length === 0) {
             availableFoodContainer.innerHTML = `
                 <div class="empty-state">
@@ -204,12 +204,12 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             return;
         }
-        
+
         // Create food items
         sampleAvailableFood.forEach(food => {
             const foodItem = document.createElement('div');
             foodItem.className = 'food-item';
-            
+
             foodItem.innerHTML = `
                 <div class="food-icon">
                     <i class="fas fa-apple-whole"></i>
@@ -223,17 +223,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     </button>
                 </div>
             `;
-            
+
             availableFoodContainer.appendChild(foodItem);
         });
-        
+
         // Add event listeners for request buttons
         const requestItemButtons = document.querySelectorAll('.request-item-btn');
         requestItemButtons.forEach(button => {
             button.addEventListener('click', (e) => {
                 const foodId = e.target.closest('.request-item-btn').dataset.id;
                 const foodItem = sampleAvailableFood.find(item => item.id === parseInt(foodId));
-                
+
                 if (foodItem) {
                     showToast(`Request submitted for ${foodItem.type}`, 'success');
                 }
@@ -243,10 +243,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function loadAvailableDeliveries() {
         const availableDeliveriesContainer = document.getElementById('available-deliveries');
-        
+
         // Clear loading spinner
         availableDeliveriesContainer.innerHTML = '';
-        
+
         // In a real app, you would load actual delivery data here
         availableDeliveriesContainer.innerHTML = `
             <div class="empty-state">
@@ -256,38 +256,38 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
     }
 
-    // Form handling
+    /*// Form handling
     function handleDonateFormSubmit(event) {
         event.preventDefault();
-        
+
         const foodType = document.getElementById('food-type').value;
         const quantity = document.getElementById('quantity').value;
-        
+
         showToast(`Thank you for donating ${quantity} of ${foodType}!`, 'success');
         event.target.reset();
-    }
+    }*/
 
     function handleRequestFormSubmit(event) {
         event.preventDefault();
-        
+
         const name = document.getElementById('request-name').value;
         const numPeople = document.getElementById('request-people').value;
-        
+
         showToast(`Food request for ${numPeople} people submitted successfully!`, 'success');
         event.target.reset();
     }
 
     function handleVolunteerFormSubmit(event) {
         event.preventDefault();
-        
+
         const name = document.getElementById('volunteer-name').value;
         const role = document.getElementById('volunteer-role').value;
-        
+
         let roleText = "volunteering";
         if (role === 'driver') roleText = "as a Food Delivery Driver";
         if (role === 'kitchen') roleText = "as a Kitchen Helper";
         if (role === 'coordinator') roleText = "as a Donation Coordinator";
-        
+
         showToast(`Thank you ${name} for ${roleText}!`, 'success');
         event.target.reset();
     }
@@ -299,29 +299,29 @@ document.addEventListener('DOMContentLoaded', function() {
             switchTab(tabName);
         });
     });
-    
+
     // Quick navigation buttons
     if (donateButton) {
         donateButton.addEventListener('click', () => switchTab('donate'));
     }
-    
+
     if (requestButton) {
         requestButton.addEventListener('click', () => switchTab('request'));
     }
-    
+
     if (volunteerBtn) {
         volunteerBtn.addEventListener('click', () => switchTab('volunteer'));
     }
-    
+
     // Form submissions
     if (donateForm) {
         donateForm.addEventListener('submit', handleDonateFormSubmit);
     }
-    
+
     if (requestForm) {
         requestForm.addEventListener('submit', handleRequestFormSubmit);
     }
-    
+
     if (volunteerForm) {
         volunteerForm.addEventListener('submit', handleVolunteerFormSubmit);
     }
